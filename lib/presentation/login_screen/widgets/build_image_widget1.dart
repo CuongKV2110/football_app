@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
 
-class BuildImageWidget extends StatelessWidget {
-  const BuildImageWidget({Key? key}) : super(key: key);
+class BuildImageWidget1 extends StatelessWidget {
+  const BuildImageWidget1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,18 @@ class BuildImageWidget extends StatelessWidget {
       child: Container(
         width: AppDimensions.d55w,
         height: AppDimensions.d40h,
-        color: AppColors.orange1,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              AppColors.orange1,
+              AppColors.orange2,
+            ],
+          ),
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(32),
+        ),
         child: Image.asset(
           'images/bgr1.png',
           fit: BoxFit.contain,

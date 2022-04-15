@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/resources/colors.dart';
@@ -21,7 +20,7 @@ class _SignUpFormState extends State<SignUpForm> {
           height: 56,
           child: const Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 20,
+              horizontal: 30,
             ),
             child: TextField(
               style: TextStyle(color: AppColors.white),
@@ -40,12 +39,12 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
         ),
         const SizedBox(
-          height: 26,
+          height: 10,
         ),
         Container(
           height: 56,
           child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: TextField(
               style: TextStyle(color: AppColors.white),
               decoration: InputDecoration(
@@ -63,13 +62,13 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
         ),
         const SizedBox(
-          height: 26,
+          height: 10,
         ),
         Container(
           height: 56,
           child: const Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 20,
+              horizontal: 30,
             ),
             child: TextField(
               style: TextStyle(color: AppColors.white),
@@ -89,12 +88,12 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
         ),
         const SizedBox(
-          height: 26,
+          height: 10,
         ),
         Container(
           height: 56,
           child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: TextField(
               style: TextStyle(color: AppColors.white),
               obscureText: true,
@@ -112,9 +111,6 @@ class _SignUpFormState extends State<SignUpForm> {
             borderRadius: BorderRadius.circular(30),
           ),
         ),
-        SizedBox(
-          height: 26,
-        ),
         _buildCheckBox()
       ],
     );
@@ -127,14 +123,14 @@ class _SignUpFormState extends State<SignUpForm> {
           fillColor: MaterialStateProperty.all(AppColors.white),
           checkColor: AppColors.black1,
           activeColor: AppColors.white,
-          value: this.value,
+          value: value,
           onChanged: (bool? value) {
             setState(() {
               this.value = value!;
             });
           },
         ),
-        Text(
+        const Text(
           'I accept terms  & conditions and privacy policy',
           style: TextStyle(
             fontSize: 12,

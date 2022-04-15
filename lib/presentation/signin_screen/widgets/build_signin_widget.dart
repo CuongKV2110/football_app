@@ -19,7 +19,7 @@ class _BuildSigninWidgetState extends State<BuildSigninWidget> {
             height: 56,
             child: const Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: 20,
+                horizontal: 30,
               ),
               child: TextField(
                 style: TextStyle(color: AppColors.white),
@@ -43,7 +43,7 @@ class _BuildSigninWidgetState extends State<BuildSigninWidget> {
           Container(
             height: 56,
             child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: TextField(
                 style: TextStyle(color: AppColors.white),
                 obscureText: true,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_app/presentation/login_screen/widgets/build_image_widget.dart';
+import 'package:music_app/presentation/login_screen/widgets/build_image_widget1.dart';
 import 'package:music_app/presentation/login_screen/widgets/build_media_widget.dart';
 import 'package:music_app/presentation/login_screen/widgets/build_options_widget.dart';
 
@@ -28,7 +28,7 @@ class LoginOptions extends StatelessWidget {
             SizedBox(
               height: 60,
             ),
-            BuildImageWidget(),
+            BuildImageWidget1(),
             SizedBox(
               height: 20,
             ),

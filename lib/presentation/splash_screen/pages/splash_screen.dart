@@ -52,6 +52,40 @@ class _SplashScreenState extends State<SplashScreen> {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: _currentPage == 0
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            child: const Text(
+                              'Skip',
+                              style: TextStyle(
+                                color: AppColors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return const LoginOptions();
+                                  },
+                                ),
+                              );
+                            },
+                          )
+                        ],
+                      )
+                    : const SizedBox(
+                        height: 10,
+                      ),
+              ),
               Expanded(
                 child: Stack(
                   alignment: Alignment.bottomCenter,
@@ -74,10 +108,21 @@ class _SplashScreenState extends State<SplashScreen> {
                               child: Container(
                                 width: AppDimensions.d65w,
                                 height: AppDimensions.d45h,
-                                color: AppColors.orange1,
                                 child: Image.asset(
                                   slideList[index].imgUrl,
                                   fit: BoxFit.contain,
+                                ),
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      AppColors.orange1,
+                                      AppColors.orange2,
+                                    ],
+                                  ),
+                                  color: AppColors.white,
+                                  borderRadius: BorderRadius.circular(32),
                                 ),
                               ),
                             ),
@@ -116,11 +161,11 @@ class _SplashScreenState extends State<SplashScreen> {
                       },
                     ),
                     Stack(
-                      alignment: AlignmentDirectional.center,
+                      alignment: AlignmentDirectional.bottomEnd,
                       children: [
                         Container(
                           margin: const EdgeInsets.only(
-                            bottom: 35,
+                            bottom: 30,
                           ),
                           child: _currentPage == 2
                               ? GestureDetector(

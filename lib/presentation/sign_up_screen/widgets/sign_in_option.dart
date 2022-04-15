@@ -11,7 +11,7 @@ class SignInOption extends StatelessWidget {
       child: Row(
         children: [
           const Text(
-            'Already have an account !',
+            'Already have an account ! ',
             style: TextStyle(color: AppColors.white, fontSize: 14),
           ),
           GestureDetector(
