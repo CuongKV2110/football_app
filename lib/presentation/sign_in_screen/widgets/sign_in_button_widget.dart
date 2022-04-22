@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/presentation/home_screen/pages/build_home_screen.dart';
 import 'package:music_app/presentation/home_screen/pages/home_screen.dart';
 
 import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
-import '../../sign_in_screen/pages/sign_in_screen.dart';
 
-class SignUpButton extends StatelessWidget {
-  const SignUpButton({Key? key}) : super(key: key);
+class SignInButtonWidget extends StatelessWidget {
+  const SignInButtonWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class SignUpButton extends StatelessWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return HomeScreen();
+                  return const HomeScreen();
                 },
               ),
             );
@@ -31,8 +31,8 @@ class SignUpButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(28),
               ),
               fixedSize: Size(AppDimensions.d40w - 4, 52)),
-          child: Text(
-            'Sign Up',
+          child: const Text(
+            'Sign In',
             style: TextStyle(
               color: AppColors.white,
               fontSize: 18,

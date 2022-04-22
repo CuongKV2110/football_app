@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:music_app/data/resources/colors.dart';
 
 class ShareDetailWidget extends StatelessWidget {
@@ -10,7 +11,7 @@ class ShareDetailWidget extends StatelessWidget {
     return Column(
       children: [
         Icon(
-          Icons.share,
+          Ionicons.arrow_redo,
           color: AppColors.white,
         ),
         SizedBox(

@@ -5,8 +5,8 @@ import 'package:music_app/presentation/login_screen/widgets/build_options_widget
 
 import '../../../data/resources/colors.dart';
 
-class LoginOptions extends StatelessWidget {
-  const LoginOptions({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

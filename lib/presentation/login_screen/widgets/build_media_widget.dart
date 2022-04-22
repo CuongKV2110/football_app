@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:music_app/data/resources/colors.dart';
 
 class BuildMediaWidget extends StatelessWidget {
@@ -21,7 +22,7 @@ class BuildMediaWidget extends StatelessWidget {
   Widget _buildDivider() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(children: const [
+      child: Row(children: [
         Expanded(
           child: Divider(
             color: AppColors.white,
@@ -47,28 +48,53 @@ class BuildMediaWidget extends StatelessWidget {
   }
 
   Widget _buildMedia() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 60),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          CircleAvatar(
-            radius: 26,
-            backgroundImage: AssetImage('images/face.png'),
-            backgroundColor: AppColors.black1,
+    return Row(
+      children: [
+        Spacer(),
+        Container(
+          width: 45,
+          height: 45,
+          child: Icon(
+            Icons.facebook_outlined,
+            color: AppColors.white,
           ),
-          CircleAvatar(
-            radius: 26,
-            backgroundImage: AssetImage('images/google.png'),
-            backgroundColor: AppColors.black1,
+          decoration: BoxDecoration(
+            color: AppColors.blue2,
+            borderRadius: BorderRadius.circular(22),
           ),
-          CircleAvatar(
-            radius: 26,
-            backgroundImage: AssetImage('images/twitter.png'),
-            backgroundColor: AppColors.black1,
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Container(
+          width: 45,
+          height: 45,
+          child: Icon(
+            Ionicons.logo_google,
+            color: AppColors.white,
           ),
-        ],
-      ),
+          decoration: BoxDecoration(
+            color: AppColors.red2,
+            borderRadius: BorderRadius.circular(22),
+          ),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Container(
+          width: 45,
+          height: 45,
+          child: Icon(
+            Ionicons.logo_twitter,
+            color: AppColors.white,
+          ),
+          decoration: BoxDecoration(
+            color: AppColors.blue1,
+            borderRadius: BorderRadius.circular(22),
+          ),
+        ),
+        Spacer()
+      ],
     );
   }
 }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/colors.dart';
-import 'package:music_app/presentation/login_screen/widgets/build_image_widget1.dart';
 import 'package:music_app/presentation/sign_up_screen/widgets/sign_in_option.dart';
-import 'package:music_app/presentation/signin_screen/widgets/build_image_widget2.dart';
-
+import '../../sign_in_screen/widgets/build_image_widget2.dart';
 import '../widgets/sign_up_button_widget.dart';
 import '../widgets/sign_up_form.dart';
 
@@ -28,7 +26,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               children: [
                 BuildImageWidget2(),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
@@ -36,11 +34,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     children: const [
                       SignUpForm(),
+                      SizedBox(
+                        height: 10,
+                      ),
                       SignUpButton(),
                       SizedBox(
                         height: 10,
                       ),
-                      SignInOption()
+                      SizedBox(
+                        height: 10,
+                      ),
+                      SignInOption(),
+                      SizedBox(
+                        height: 10,
+                      ),
                     ],
                   ),
                 ),

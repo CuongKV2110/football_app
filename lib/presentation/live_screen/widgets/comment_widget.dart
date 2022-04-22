@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 import '../../../data/resources/colors.dart';
 
@@ -11,7 +12,7 @@ class CommentDetailWidget extends StatelessWidget {
     return Column(
       children: [
         Icon(
-          Icons.chat,
+          Ionicons.chatbubble_ellipses_outline,
           color: AppColors.white,
         ),
         SizedBox(

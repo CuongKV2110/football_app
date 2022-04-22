@@ -32,49 +32,53 @@ class _LiveScreenState extends State<LiveScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: [
-            BuildImageWidget3(),
-            Positioned(
-              left: 18,
-              top: 30,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(
-                  Icons.arrow_back,
-                  color: AppColors.white,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 10,
-              child: Container(
-                width: AppDimensions.d100w,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          ContentWidget(),
-                          Spacer(),
-                          const InteractiveWidget(),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const CommentBoxWidget()
-                    ],
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: Scaffold(
+          body: Stack(
+            children: [
+              BuildImageWidget3(),
+              Positioned(
+                left: 18,
+                top: 30,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.arrow_back,
+                    color: AppColors.white,
                   ),
                 ),
               ),
-            )
-          ],
+              Positioned(
+                bottom: 10,
+                child: Container(
+                  width: AppDimensions.d100w,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            ContentWidget(),
+                            const InteractiveWidget(),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const CommentBoxWidget()
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

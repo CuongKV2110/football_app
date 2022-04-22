@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/resources/colors.dart';
-import '../../../data/resources/dimensions.dart';
 
 class ContentWidget extends StatelessWidget {
   String content =
       'Real Madrid vs Chelsea. Quarter Final UEFA Champions League 2022 #fyp #foryou #viral';
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: AppDimensions.d70w,
+    return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
