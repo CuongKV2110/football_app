@@ -73,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           body: PageView(
+            physics: NeverScrollableScrollPhysics(),
             onPageChanged: (index) {
               setState(() {
                 _currentIndex = index;

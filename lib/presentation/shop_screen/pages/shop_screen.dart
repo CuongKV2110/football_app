@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/presentation/shop_screen/widgets/build_shop_bar.dart';
 
@@ -25,14 +24,15 @@ class _ShopScreenState extends State<ShopScreen>
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: CustomScrollView(
-              physics: BouncingScrollPhysics(),
-              slivers: [
-                BuildShopBar(),
-                BuildShop(),
-              ],
-            )),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: CustomScrollView(
+            physics: BouncingScrollPhysics(),
+            slivers: [
+              BuildShopBar(),
+              BuildShop(),
+            ],
+          ),
+        ),
       ),
     );
   }

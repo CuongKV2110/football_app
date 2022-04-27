@@ -12,8 +12,9 @@ class BuildShopBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              Expanded(
+              const Expanded(
                 child: TextField(
+                  style: TextStyle(color: AppColors.white),
                   decoration: InputDecoration(
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: AppColors.white),
@@ -25,27 +26,28 @@ class BuildShopBar extends StatelessWidget {
                       borderSide: BorderSide(color: AppColors.white),
                     ),
                     hintText: 'Search',
-                    hintStyle: const TextStyle(
+                    hintStyle: TextStyle(
                       color: AppColors.gray,
                       fontSize: 15,
                     ),
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.search,
                       color: AppColors.gray,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               GestureDetector(
                 onTap: () {},
-                child: Icon(Ionicons.options_outline, color: AppColors.orange1),
+                child: const Icon(Ionicons.options_outline,
+                    color: AppColors.orange1),
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
         ],

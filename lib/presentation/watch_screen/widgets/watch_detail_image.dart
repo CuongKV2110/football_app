@@ -69,7 +69,7 @@ class WatchDetailImage extends StatelessWidget {
         const Spacer(),
         const Text(
           'Robert Lewandowski',
-          style: const TextStyle(
+          style: TextStyle(
               color: AppColors.white,
               fontSize: 24,
               fontWeight: FontWeight.bold),
@@ -87,17 +87,17 @@ class WatchDetailImage extends StatelessWidget {
         const Spacer(),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const Icon(
+          children: const [
+            Icon(
               Icons.timer_outlined,
               color: AppColors.white,
             ),
-            const SizedBox(
+            SizedBox(
               width: 4,
             ),
-            const Text(
+            Text(
               'Started 30 min ago',
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.white,
                 fontSize: 13,
               ),

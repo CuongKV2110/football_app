@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/resources/colors.dart';
@@ -18,10 +19,8 @@ class InfoWidget extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 20,
-          backgroundImage: NetworkImage(index % 2 == 0 ? img_url1 : img_url2),
-          /*backgroundImage: CachedNetworkImage(
-            imageUrl: index % 2 == 0 ? img_url1 : img_url2,
-          ),*/
+          backgroundImage:
+              CachedNetworkImageProvider(index % 2 == 0 ? img_url1 : img_url2),
         ),
         const SizedBox(
           width: 8,

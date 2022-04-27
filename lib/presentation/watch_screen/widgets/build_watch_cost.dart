@@ -28,22 +28,13 @@ class BuildWatchCost extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.attach_money_outlined,
-                        color: AppColors.orange2,
-                      ),
-                      Text(
-                        cost == 'Month' ? "760" : "6100",
-                        style: TextStyle(
-                          color: AppColors.orange2,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    ],
+                  Text(
+                    cost == 'Month' ? "\$ 760" : "\$ 6100",
+                    style: TextStyle(
+                      color: AppColors.orange2,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   )
                 ],
               ),

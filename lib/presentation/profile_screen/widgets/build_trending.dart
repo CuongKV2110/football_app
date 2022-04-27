@@ -17,54 +17,51 @@ class _BuildTrendingState extends State<BuildTrending> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: 18),
-      child: SizedBox(
-        width: AppDimensions.d100w,
-        height: 200,
-        child: ListView.builder(
-            physics: BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            shrinkWrap: true,
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(right: index == 4 ? 0 : 20),
-                child: Stack(
-                  children: [
-                    ClipRRect(
-                      child: CachedNetworkImage(
-                        imageUrl: img_url1,
-                        width: 190,
-                        height: 190,
-                        fit: BoxFit.fill,
-                      ),
-                      borderRadius: BorderRadius.circular(16),
+    return SizedBox(
+      width: AppDimensions.d100w,
+      height: 200,
+      child: ListView.builder(
+          physics: BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          shrinkWrap: true,
+          itemCount: 5,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.only(right: index == 4 ? 0 : 20),
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    child: CachedNetworkImage(
+                      imageUrl: img_url1,
+                      width: AppDimensions.d40w,
+                      height: 190,
+                      fit: BoxFit.fill,
                     ),
-                    Positioned(
-                      bottom: 14,
-                      right: 10,
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.remove_red_eye,
-                            color: AppColors.white,
-                          ),
-                          SizedBox(
-                            width: 6,
-                          ),
-                          Text(
-                            '372K',
-                            style: TextStyle(color: AppColors.white),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              );
-            }),
-      ),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  Positioned(
+                    bottom: 14,
+                    right: 10,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.remove_red_eye,
+                          color: AppColors.white,
+                        ),
+                        SizedBox(
+                          width: 6,
+                        ),
+                        Text(
+                          '372K',
+                          style: TextStyle(color: AppColors.white),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            );
+          }),
     );
   }
 }

@@ -1,15 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:music_app/presentation/shop_screen/widgets/button_widget.dart';
-import 'package:music_app/presentation/shop_screen/widgets/info_widget.dart';
 
 import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
+import '../pages/shop_detail_screen.dart';
+import 'button_widget.dart';
+import 'info_widget.dart';
 
-class BuildShop extends StatelessWidget {
+class BuildShop extends StatefulWidget {
+  const BuildShop({Key? key}) : super(key: key);
+
+  @override
+  _BuildShopState createState() => _BuildShopState();
+}
+
+class _BuildShopState extends State<BuildShop> {
   String img_url1 =
       'https://i.pinimg.com/736x/e3/af/24/e3af24414fb250041a4589a4148e9201.jpg';
-
   String img_url2 =
       'https://preview.redd.it/z2crwms8eox61.jpg?auto=webp&s=177c534c79de7e168466e0948619cca367d16b83';
   String img_url3 =
@@ -21,6 +28,7 @@ class BuildShop extends StatelessWidget {
   String img_url6 = 'https://images.indianexpress.com/2020/03/mason-mount.jpg';
   String content =
       'Kai Havertz currently plays for Chelsea, he plays as a striker. He has an amazing appearance, but he has not had a lover';
+  bool isPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,26 +37,37 @@ class BuildShop extends StatelessWidget {
         (context, index) {
           return Column(
             children: [
-              Container(
-                width: AppDimensions.d90w,
-                height: AppDimensions.d90w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7),
-                  color: AppColors.black2.withOpacity(0.2),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(19),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildHeader(index),
-                      const SizedBox(height: 10),
-                      _buildImage(index),
-                      const SizedBox(height: 10),
-                      _buildIcon(),
-                      const SizedBox(height: 10),
-                      _buildContent(),
-                    ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const ShopDetailScreen();
+                      },
+                    ),
+                  );
+                },
+                child: Container(
+                  width: AppDimensions.d90w,
+                  height: AppDimensions.d50h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    color: AppColors.black2.withOpacity(0.2),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(19),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildHeader(index),
+                        const SizedBox(height: 10),
+                        _buildImage(index),
+                        const SizedBox(height: 10),
+                        _buildIcon(),
+                        const SizedBox(height: 10),
+                        _buildContent(),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -75,51 +94,53 @@ class BuildShop extends StatelessWidget {
 
   Widget _buildImage(int index) {
     return Expanded(
-      child: Row(
-        children: [
-          Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(6),
-              child: CachedNetworkImage(
-                imageUrl: index % 2 == 0 ? img_url1 : img_url2,
-                fit: BoxFit.fill,
-                width: AppDimensions.d50w,
+      child: GestureDetector(
+        child: Row(
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: CachedNetworkImage(
+                  imageUrl: index % 2 == 0 ? img_url1 : img_url2,
+                  fit: BoxFit.fill,
+                  width: AppDimensions.d50w,
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          Column(
-            children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
-                  child: CachedNetworkImage(
-                    imageUrl: index % 2 == 0 ? img_url3 : img_url5,
-                    fit: BoxFit.fill,
-                    width: AppDimensions.d30w,
-                    height: 100,
+            const SizedBox(
+              width: 10,
+            ),
+            Column(
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(6),
+                    child: CachedNetworkImage(
+                      imageUrl: index % 2 == 0 ? img_url3 : img_url5,
+                      fit: BoxFit.fill,
+                      width: AppDimensions.d30w,
+                      height: 100,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
-                  child: CachedNetworkImage(
-                    imageUrl: index % 2 == 0 ? img_url4 : img_url6,
-                    fit: BoxFit.fill,
-                    width: AppDimensions.d30w,
-                    height: 100,
-                  ),
+                const SizedBox(
+                  height: 10,
                 ),
-              )
-            ],
-          )
-        ],
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(6),
+                    child: CachedNetworkImage(
+                      imageUrl: index % 2 == 0 ? img_url4 : img_url6,
+                      fit: BoxFit.fill,
+                      width: AppDimensions.d30w,
+                      height: 100,
+                    ),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -128,10 +149,17 @@ class BuildShop extends StatelessWidget {
     return Row(
       children: [
         Row(
-          children: const [
-            Icon(
-              Icons.favorite,
-              color: AppColors.red2,
+          children: [
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPressed = !isPressed;
+                });
+              },
+              child: Icon(
+                isPressed ? Icons.favorite : Icons.favorite_outline,
+                color: isPressed ? AppColors.red2 : AppColors.white,
+              ),
             ),
             SizedBox(
               width: 4,
