@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/colors.dart';
 import 'package:music_app/data/resources/dimensions.dart';
+import '../../widgets/build_user.dart';
 
 class BuildEvents extends StatelessWidget {
   String img_url1 =
@@ -95,24 +96,7 @@ class BuildEvents extends StatelessWidget {
                             const SizedBox(
                               height: 12,
                             ),
-                            Row(
-                              children: const [
-                                CircleAvatar(
-                                  radius: 10,
-                                  backgroundImage: AssetImage('images/avt.jpg'),
-                                ),
-                                SizedBox(
-                                  width: 2,
-                                ),
-                                Text(
-                                  'Alexander Maria Laporta',
-                                  style: TextStyle(
-                                    color: AppColors.white,
-                                    fontSize: 13,
-                                  ),
-                                )
-                              ],
-                            )
+                            BuildUser()
                           ],
                         ),
                       ),

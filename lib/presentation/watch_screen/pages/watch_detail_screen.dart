@@ -9,14 +9,16 @@ class WatchDetailScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.black1,
-        body: Column(
-          children: [
-            WatchDetailImage(),
-            SizedBox(
-              height: 10,
-            ),
-            WatchDetailContent()
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              WatchDetailImage(),
+              SizedBox(
+                height: 20,
+              ),
+              WatchDetailContent()
+            ],
+          ),
         ),
       ),
     );

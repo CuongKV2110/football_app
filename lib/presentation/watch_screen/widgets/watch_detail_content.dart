@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:music_app/presentation/watch_screen/widgets/build_watch_cost.dart';
 
 import '../../../data/resources/colors.dart';
 
@@ -22,45 +23,20 @@ class WatchDetailContent extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
-          /*SizedBox(
-            width: AppDimensions.d90w,
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColors.orange1,
-                          AppColors.orange2,
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Expanded(
-                    child: Container(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        AppColors.orange1,
-                        AppColors.orange2,
-                      ],
-                    ),
-                  ),
-                )),
-              ],
-            ),
-          )*/
+          Row(
+            children: [
+              BuildWatchCost('Month'),
+              SizedBox(
+                width: 20,
+              ),
+              BuildWatchCost('Year'),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

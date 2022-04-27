@@ -1,9 +1,14 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:music_app/presentation/watch_screen/pages/watch_detail_screen.dart';
 
 import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
+import '../../widgets/build_user.dart';
+import 'build_watch_time.dart';
 
 class WatchContent extends StatelessWidget {
   String content;
@@ -59,168 +64,177 @@ class WatchContent extends StatelessWidget {
                 return Padding(
                   padding: EdgeInsets.fromLTRB(
                       index == 0 ? 18 : 0, 0, index == lenght - 1 ? 0 : 20, 0),
-                  child: Stack(
-                    children: [
-                      ClipRRect(
-                        child: CachedNetworkImage(
-                          imageUrl: content == 'Live'
-                              ? img_url1
-                              : (content == 'Current' ? img_url2 : img_url3),
-                          width: AppDimensions.d80w,
-                          height: AppDimensions.d30h,
-                          fit: BoxFit.fill,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return WatchDetailScreen();
+                          },
                         ),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      Positioned(
-                          top: 10,
-                          left: 10,
-                          child: content == 'Live'
-                              ? const Icon(
-                                  Ionicons.radio,
-                                  color: AppColors.white,
-                                )
-                              : const SizedBox()),
-                      const Positioned(
-                        top: 10,
-                        right: 10,
-                        child: Icon(
-                          Ionicons.ellipsis_vertical,
-                          color: AppColors.white,
+                      );
+                    },
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          child: CachedNetworkImage(
+                            imageUrl: content == 'Live'
+                                ? img_url1
+                                : (content == 'Current' ? img_url2 : img_url3),
+                            width: AppDimensions.d80w,
+                            height: AppDimensions.d30h,
+                            fit: BoxFit.fill,
+                          ),
+                          borderRadius: BorderRadius.circular(16),
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        child: Container(
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 0, 10, 6),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Caroline Kennedy',
-                                  style: TextStyle(
+                        Positioned(
+                            top: 10,
+                            left: 10,
+                            child: content == 'Live'
+                                ? const Icon(
+                                    Ionicons.radio,
                                     color: AppColors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 6,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.location_on_outlined,
-                                      color: AppColors.white,
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      'Wembley Stadium',
-                                      style: TextStyle(
-                                        color: AppColors.white,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Row(children: [
-                                      Text(
-                                        'Music',
-                                        style: TextStyle(
-                                          color: AppColors.white,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 2,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 10,
-                                        color: AppColors.white,
-                                      ),
-                                      SizedBox(
-                                        width: 2,
-                                      ),
-                                      Text(
-                                        'Dance',
-                                        style: TextStyle(
-                                          color: AppColors.white,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 2,
-                                      ),
-                                      Container(
-                                        width: 1,
-                                        height: 10,
-                                        color: AppColors.white,
-                                      ),
-                                      SizedBox(
-                                        width: 2,
-                                      ),
-                                      Text(
-                                        'Fun',
-                                        style: TextStyle(
-                                          color: AppColors.white,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ]),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 12,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: const [
-                                    CircleAvatar(
-                                      radius: 10,
-                                      backgroundImage:
-                                          AssetImage('images/avt.jpg'),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      'Alexander Maria Laporta',
-                                      style: TextStyle(
-                                        color: AppColors.white,
-                                        fontSize: 13,
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          decoration: BoxDecoration(
+                                  )
+                                : const SizedBox()),
+                        const Positioned(
+                          top: 10,
+                          right: 10,
+                          child: Icon(
+                            Ionicons.ellipsis_vertical,
                             color: AppColors.white,
-                            gradient: LinearGradient(
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                                colors: [
-                                  AppColors.black1,
-                                  AppColors.black3.withOpacity(0.8),
-                                  AppColors.black3.withOpacity(0.6),
-                                ]),
-                            borderRadius: const BorderRadius.only(
-                              bottomRight: Radius.circular(16),
-                              bottomLeft: Radius.circular(16),
-                            ),
                           ),
-                          height: AppDimensions.d15h,
-                          width: AppDimensions.d80w,
                         ),
-                      )
-                    ],
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          child: Container(
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 0, 10, 6),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Caroline Kennedy',
+                                    style: TextStyle(
+                                      color: AppColors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 6,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      const Icon(
+                                        Icons.location_on_outlined,
+                                        color: AppColors.white,
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      const Text(
+                                        'Wembley Stadium',
+                                        style: TextStyle(
+                                          color: AppColors.white,
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      Row(children: [
+                                        Text(
+                                          content == 'Live'
+                                              ? 'Music'
+                                              : 'Athletic',
+                                          style: const TextStyle(
+                                            color: AppColors.white,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 2,
+                                        ),
+                                        Container(
+                                          width: 1,
+                                          height: 10,
+                                          color: AppColors.white,
+                                        ),
+                                        const SizedBox(
+                                          width: 2,
+                                        ),
+                                        Text(
+                                          content == 'Live'
+                                              ? 'Dance'
+                                              : 'All Levels',
+                                          style: const TextStyle(
+                                            color: AppColors.white,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 2,
+                                        ),
+                                        content == 'Live'
+                                            ? Container(
+                                                width: 1,
+                                                height: 10,
+                                                color: AppColors.white,
+                                              )
+                                            : const SizedBox(),
+                                        const SizedBox(
+                                          width: 2,
+                                        ),
+                                        Text(
+                                          content == 'Live' ? 'Fun' : '',
+                                          style: const TextStyle(
+                                            color: AppColors.white,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ]),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+                                  Expanded(
+                                    child: Row(
+                                      children: [
+                                        BuildUser(),
+                                        const Spacer(),
+                                        content == 'Live'
+                                            ? const SizedBox()
+                                            : BuildWatchTime()
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.white,
+                              gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                  colors: [
+                                    AppColors.black1,
+                                    AppColors.black3.withOpacity(0.8),
+                                    AppColors.black3.withOpacity(0.6),
+                                  ]),
+                              borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(16),
+                                bottomLeft: Radius.circular(16),
+                              ),
+                            ),
+                            height: AppDimensions.d15h,
+                            width: AppDimensions.d80w,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 );
               }),

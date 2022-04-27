@@ -54,9 +54,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 },
-                child: const CircleAvatar(
-                  radius: 20,
-                  backgroundImage: AssetImage('images/avt.jpg'),
+                child: Container(
+                  alignment: Alignment.center,
+                  child: ClipRRect(
+                    child: Image.asset(
+                      'images/avt.jpg',
+                      fit: BoxFit.cover,
+                      width: 40,
+                      height: 40,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
               const SizedBox(
