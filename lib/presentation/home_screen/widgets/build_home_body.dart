@@ -1,10 +1,13 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:music_app/data/resources/dimensions.dart';
+import 'package:music_app/presentation/home_screen/widgets/build_options.dart';
 import 'package:music_app/presentation/home_screen/widgets/build_text_content.dart';
 import 'package:music_app/presentation/home_screen/widgets/catch_up_widget.dart';
 import 'package:music_app/presentation/home_screen/widgets/category_widget.dart';
 import 'package:music_app/presentation/home_screen/widgets/top_pick_widget.dart';
-
-import 'build_options.dart';
+import 'package:music_app/presentation/live_screen/pages/live_screen.dart';
 
 class BuildHomeBody extends StatefulWidget {
   const BuildHomeBody({Key? key}) : super(key: key);

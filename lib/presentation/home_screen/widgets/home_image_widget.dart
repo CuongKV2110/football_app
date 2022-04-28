@@ -5,8 +5,9 @@ import 'package:music_app/data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
 
 class HomeImageWidget extends StatelessWidget {
-  String img_url =
-      'https://afamilycdn.com/Tnk9vRlUgEMOa9xiFyoQdi0bvg9Omj/Image/2012/08/120905phim1-feb54.jpg';
+  String img_url;
+
+  HomeImageWidget(this.img_url);
 
   @override
   Widget build(BuildContext context) {

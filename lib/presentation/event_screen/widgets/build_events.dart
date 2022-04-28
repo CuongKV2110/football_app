@@ -5,12 +5,19 @@ import 'package:music_app/data/resources/dimensions.dart';
 import '../../widgets/build_user.dart';
 
 class BuildEvents extends StatelessWidget {
-  String img_url1 =
-      'https://i.pinimg.com/originals/fa/f7/8d/faf78d83138ffcb0e2375f9db7540c95.jpg';
-  String img_url2 =
-      'https://thumbs.dreamstime.com/b/summer-partyl-poster-design-illustration-party-71357859.jpg';
+  final List<String> imagesList = [
+    'https://i.pinimg.com/originals/fa/f7/8d/faf78d83138ffcb0e2375f9db7540c95.jpg',
+    'https://thumbs.dreamstime.com/b/summer-partyl-poster-design-illustration-party-71357859.jpg',
+    'https://farm9.staticflickr.com/8041/28365390952_c123943f2c_o.jpg',
+    'https://dcassetcdn.com/design_img/2814604/662683/662683_15448748_2814604_a02672dd_thumbnail.png',
+    'https://www.xtremeflyers.com/wp-content/uploads/2019/06/Summer-Paradise-Flyer-Template-369x553.jpg',
+    'https://graphicriver.img.customer.envatousercontent.com/files/298399713/590.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=9f5214c3bfba08d87f63594d6ae11f17',
+    'https://graphicriver.img.customer.envatousercontent.com/files/348302951/590.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=e079559f7d0aec9a9c9f00e25d517593',
+  ];
+
   String string1 =
-      'My trip to China started Bejing, where I stayed in a beautiful hotel called uhaskh asdhasdh ashasdhas diash a';
+      'My trip to China started Bejing, where I stayed in a beautiful hotel calledbut i not call repeat because i busy';
+
   @override
   Widget build(BuildContext context) {
     return SliverList(
@@ -23,9 +30,9 @@ class BuildEvents extends StatelessWidget {
                 children: [
                   ClipRRect(
                     child: CachedNetworkImage(
-                      imageUrl: index % 2 == 0 ? img_url1 : img_url2,
+                      imageUrl: imagesList[index],
                       width: AppDimensions.d90w,
-                      height: AppDimensions.d90w,
+                      height: AppDimensions.d40h,
                       fit: BoxFit.fill,
                     ),
                     borderRadius: BorderRadius.circular(24),
@@ -73,30 +80,30 @@ class BuildEvents extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Caroline Kennedy',
-                              style: TextStyle(
-                                color: AppColors.white,
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
+                            Expanded(
+                              child: Text(
+                                'Caroline Kennedy',
+                                style: TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 6,
-                            ),
-                            Text(
-                              string1,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                color: AppColors.white,
-                                fontSize: 14,
+                            Expanded(
+                              child: Text(
+                                string1,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 12,
+                            Expanded(
+                              child: BuildUser(),
                             ),
-                            BuildUser()
                           ],
                         ),
                       ),
@@ -126,7 +133,7 @@ class BuildEvents extends StatelessWidget {
             ],
           );
         },
-        childCount: 10,
+        childCount: imagesList.length,
       ),
     );
   }

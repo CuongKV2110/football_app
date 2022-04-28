@@ -8,7 +8,9 @@ import '../widgets/build_image_widget3.dart';
 import '../widgets/interactive_widget.dart';
 
 class LiveScreen extends StatefulWidget {
-  const LiveScreen({Key? key}) : super(key: key);
+  String img_url;
+
+  LiveScreen(this.img_url);
 
   @override
   _LiveScreenState createState() => _LiveScreenState();
@@ -39,7 +41,7 @@ class _LiveScreenState extends State<LiveScreen> {
         child: Scaffold(
           body: Stack(
             children: [
-              BuildImageWidget3(),
+              BuildImageWidget3(widget.img_url),
               Positioned(
                 left: 18,
                 top: 30,

@@ -112,93 +112,92 @@ class WatchContent extends StatelessWidget {
                               padding: const EdgeInsets.fromLTRB(10, 0, 10, 6),
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    'Caroline Kennedy',
-                                    style: TextStyle(
-                                      color: AppColors.white,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
+                                  const Expanded(
+                                    child: Text(
+                                      'Caroline Kennedy',
+                                      style: TextStyle(
+                                        color: AppColors.white,
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 6,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      const Icon(
-                                        Icons.location_on_outlined,
-                                        color: AppColors.white,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      const Text(
-                                        'Wembley Stadium',
-                                        style: TextStyle(
-                                          color: AppColors.white,
-                                          fontSize: 13,
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      Row(children: [
-                                        Text(
-                                          content == 'Live'
-                                              ? 'Music'
-                                              : 'Athletic',
-                                          style: const TextStyle(
-                                            color: AppColors.white,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 2,
-                                        ),
-                                        Container(
-                                          width: 1,
-                                          height: 10,
+                                  Expanded(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        const Icon(
+                                          Icons.location_on_outlined,
                                           color: AppColors.white,
                                         ),
                                         const SizedBox(
-                                          width: 2,
+                                          width: 10,
                                         ),
-                                        Text(
+                                        const Text(
+                                          'Wembley Stadium',
+                                          style: TextStyle(
+                                            color: AppColors.white,
+                                            fontSize: 13,
+                                          ),
+                                        ),
+                                        const Spacer(),
+                                        Row(children: [
+                                          Text(
+                                            content == 'Live'
+                                                ? 'Music'
+                                                : 'Athletic',
+                                            style: const TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 2,
+                                          ),
+                                          Container(
+                                            width: 1,
+                                            height: 10,
+                                            color: AppColors.white,
+                                          ),
+                                          const SizedBox(
+                                            width: 2,
+                                          ),
+                                          Text(
+                                            content == 'Live'
+                                                ? 'Dance'
+                                                : 'All Levels',
+                                            style: const TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 2,
+                                          ),
                                           content == 'Live'
-                                              ? 'Dance'
-                                              : 'All Levels',
-                                          style: const TextStyle(
-                                            color: AppColors.white,
-                                            fontSize: 12,
+                                              ? Container(
+                                                  width: 1,
+                                                  height: 10,
+                                                  color: AppColors.white,
+                                                )
+                                              : const SizedBox(),
+                                          const SizedBox(
+                                            width: 2,
                                           ),
-                                        ),
-                                        const SizedBox(
-                                          width: 2,
-                                        ),
-                                        content == 'Live'
-                                            ? Container(
-                                                width: 1,
-                                                height: 10,
-                                                color: AppColors.white,
-                                              )
-                                            : const SizedBox(),
-                                        const SizedBox(
-                                          width: 2,
-                                        ),
-                                        Text(
-                                          content == 'Live' ? 'Fun' : '',
-                                          style: const TextStyle(
-                                            color: AppColors.white,
-                                            fontSize: 12,
+                                          Text(
+                                            content == 'Live' ? 'Fun' : '',
+                                            style: const TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: 12,
+                                            ),
                                           ),
-                                        ),
-                                      ]),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: 12,
+                                        ]),
+                                      ],
+                                    ),
                                   ),
                                   Expanded(
                                     child: Row(

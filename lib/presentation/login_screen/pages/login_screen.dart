@@ -24,29 +24,29 @@ class LoginScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Column(
-          children: const [
-            SizedBox(
+          children: [
+            const SizedBox(
               height: 60,
             ),
-            BuildImageWidget1(),
-            SizedBox(
+            const BuildImageWidget1(),
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Welcome to Influncer App',
               style: TextStyle(
                 color: AppColors.white,
                 fontSize: 26,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             BuildOptionsWidget(),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            BuildMediaWidget()
+            const BuildMediaWidget()
           ],
         ),
       ),

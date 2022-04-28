@@ -43,6 +43,15 @@ class _HomeScreenState extends State<HomeScreen> {
             automaticallyImplyLeading: false,
             backgroundColor: Colors.transparent,
             elevation: 0,
+            leading: Builder(
+              builder: (context) => IconButton(
+                icon: new Icon(
+                  Icons.menu_outlined,
+                  color: AppColors.white,
+                ),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              ),
+            ),
             actions: [
               GestureDetector(
                 onTap: () {

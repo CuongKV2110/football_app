@@ -17,25 +17,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.black1,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              BuildProfile(),
-              const SizedBox(
-                height: 20,
-              ),
-              BuildContent('Stories'),
-              SizedBox(
-                height: 10,
-              ),
-              BuildContent('Trending'),
-              SizedBox(
-                height: 10,
-              ),
-              BuildContent('Recent'),
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              AppColors.black1,
+              AppColors.black2,
             ],
+          ),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                BuildProfile(),
+                const SizedBox(
+                  height: 20,
+                ),
+                BuildContent('Stories'),
+                SizedBox(
+                  height: 10,
+                ),
+                BuildContent('Trending'),
+                SizedBox(
+                  height: 10,
+                ),
+                BuildContent('Recent'),
+              ],
+            ),
           ),
         ),
       ),

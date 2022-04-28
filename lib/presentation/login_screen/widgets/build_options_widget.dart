@@ -6,7 +6,8 @@ import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
 
 class BuildOptionsWidget extends StatelessWidget {
-  const BuildOptionsWidget({Key? key}) : super(key: key);
+  String img_url =
+      'https://images.unsplash.com/photo-1624253321171-1be53e12f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8amFwb258ZW58MHx8MHx8&w=1000&q=80';
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,7 @@ class BuildOptionsWidget extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return LiveScreen();
+                    return LiveScreen(img_url);
                   },
                 ),
               );

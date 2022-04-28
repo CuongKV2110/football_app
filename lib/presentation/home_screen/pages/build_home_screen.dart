@@ -24,7 +24,7 @@ class _BuildHomeScreenState extends State<BuildHomeScreen>
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
-      child: Scaffold(
+      child: const Scaffold(
         backgroundColor: Colors.transparent,
         body: CustomScrollView(
           physics: BouncingScrollPhysics(),
@@ -32,7 +32,7 @@ class _BuildHomeScreenState extends State<BuildHomeScreen>
             BuildHomeBar(),
             SliverToBoxAdapter(
               child: SizedBox(
-                height: 30,
+                height: 10,
               ),
             ),
             BuildHomeBody(),

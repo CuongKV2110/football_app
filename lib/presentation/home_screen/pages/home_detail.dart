@@ -4,6 +4,10 @@ import '../../../data/resources/colors.dart';
 import '../widgets/home_image_widget.dart';
 
 class HomeDetail extends StatelessWidget {
+  String img_url;
+
+  HomeDetail(this.img_url);
+
   String text =
       'Haih sahdisauh diusahduas hashdiashdia hdias hdiasu disahd iashdisah diashdkjasndaskhd kasdjas diashdiuashd iashd  ashdisahdiashdksa hdas khdksahd  ashdas';
 
@@ -15,17 +19,17 @@ class HomeDetail extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              HomeImageWidget(),
-              SizedBox(
+              HomeImageWidget(img_url),
+              const SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 21),
+                padding: const EdgeInsets.symmetric(horizontal: 21),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      children: [
+                      children: const [
                         Icon(
                           Icons.timer_outlined,
                           color: AppColors.white,
@@ -43,11 +47,11 @@ class HomeDetail extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     Row(
-                      children: [
+                      children: const [
                         Icon(
                           Icons.money_outlined,
                           color: AppColors.white,
@@ -65,17 +69,17 @@ class HomeDetail extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
-                    Divider(
+                    const Divider(
                       height: 1,
                       color: AppColors.gray,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
-                    Text(
+                    const Text(
                       'Courtney Black\'s Warrior',
                       style: TextStyle(
                         color: AppColors.white,
@@ -83,12 +87,13 @@ class HomeDetail extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     Text(
                       text,
-                      style: TextStyle(color: AppColors.white, fontSize: 14),
+                      style:
+                          const TextStyle(color: AppColors.white, fontSize: 14),
                     )
                   ],
                 ),

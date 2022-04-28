@@ -55,12 +55,17 @@ class _BuildDrawerState extends State<BuildDrawer> {
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 24),
-          child: ListView(
-            shrinkWrap: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(
-                Icons.close,
-                color: AppColors.white,
+              GestureDetector(
+                onTap: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                child: const Icon(
+                  Icons.close,
+                  color: AppColors.white,
+                ),
               ),
               const SizedBox(
                 height: 40,

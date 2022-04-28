@@ -68,6 +68,7 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
         TextField(
           style: TextStyle(color: AppColors.white),
+          obscureText: true,
           decoration: InputDecoration(
             border: InputBorder.none,
             enabledBorder: OutlineInputBorder(
@@ -94,6 +95,7 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
         TextField(
           style: TextStyle(color: AppColors.white),
+          obscureText: true,
           decoration: InputDecoration(
             border: InputBorder.none,
             enabledBorder: OutlineInputBorder(

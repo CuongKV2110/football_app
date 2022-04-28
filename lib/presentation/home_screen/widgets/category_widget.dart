@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/colors.dart';
 
 import '../../../data/resources/dimensions.dart';
+import '../pages/home_detail.dart';
 
 class CategoryWidget extends StatelessWidget {
   final List<String> imagesList = [
@@ -28,14 +29,25 @@ class CategoryWidget extends StatelessWidget {
                   index == imagesList.length - 1 ? 0 : 16, 0),
               child: Stack(
                 children: [
-                  ClipRRect(
-                    child: CachedNetworkImage(
-                      imageUrl: imagesList[index],
-                      width: AppDimensions.d30w,
-                      height: 120,
-                      fit: BoxFit.fill,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return HomeDetail(imagesList[index]);
+                          },
+                        ),
+                      );
+                    },
+                    child: ClipRRect(
+                      child: CachedNetworkImage(
+                        imageUrl: imagesList[index],
+                        width: AppDimensions.d30w,
+                        height: 120,
+                        fit: BoxFit.fill,
+                      ),
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                    borderRadius: BorderRadius.circular(16),
                   ),
                   Positioned(
                     bottom: 20,

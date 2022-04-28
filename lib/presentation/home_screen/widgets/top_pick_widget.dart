@@ -31,7 +31,7 @@ class TopPickWidget extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) {
-                        return HomeDetail();
+                        return HomeDetail(imagesList[index]);
                       },
                     ),
                   );

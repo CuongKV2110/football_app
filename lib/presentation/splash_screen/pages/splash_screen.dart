@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/dimensions.dart';
 import 'package:music_app/presentation/login_screen/pages/login_screen.dart';
-import 'package:music_app/presentation/watch_screen/pages/watch_detail_screen.dart';
-
 import '../../../data/models/slide.dart';
 import '../../../data/resources/colors.dart';
 import '../widgets/continue_button.dart';
-import '../widgets/slide_dots.dart';
+import '../widgets/slider_dots.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
