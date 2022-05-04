@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../data/resources/colors.dart';
 
@@ -9,13 +10,20 @@ class BuildShopDetail extends StatefulWidget {
 }
 
 class _BuildShopDetailState extends State<BuildShopDetail> {
-  String img_url1 =
-      'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/11/12/4183664669.jpg';
-  String img_url2 =
-      'https://congluan.ex-cdn.com/resize/700x400/files/news/2022/03/13/5-ky-luc-the-gioi-do-cristiano-ronaldo-nam-giu-101308.jpg';
-  String img_url3 =
-      'https://media.bongda.com.vn/files/quan.le/2019/04/08/marco-reus-03-2048.jpg';
+  final List<String> imagesList = [
+    'https://cf.shopee.vn/file/3f217175d2ef0417ec83325907137a47',
+    'https://cf.shopee.vn/file/fbfdad77c8d108e2f6aff2036c8f8980',
+    'https://file.hstatic.net/1000061481/file/2.3_c3d5765c94e440c5b408a6849fc70466.jpeg',
+    'https://cf.shopee.vn/file/7203786a758abb3f916e729e73dd2a88',
+    'https://vn-live-01.slatic.net/p/b3a8ea7dafb92528edd3fdee3bbeef01.jpg',
+    'https://file.hstatic.net/1000061481/file/giay_co_nhan_tao_tot__4__c4441963d57949f686c024e00dfa5e96.jpg',
+    'https://cf.shopee.vn/file/fc749d2ba69234945471b263a36d76d9',
+    'https://www.sport9.vn/images/uploaded/Vapor%2013%20FTL2/87c301bb223ed860812f.jpg',
+    'https://giaydabonghana.com/wp-content/uploads/2019/03/giay-da-bong-san-co-nhan-tao-mitre-vang-tf-hana-1.jpg',
+    'https://i.pinimg.com/originals/36/bf/43/36bf43eabcbd15f6c5215e3a056d21e5.jpg',
+  ];
   bool isPressed = false;
+  int _currentImg = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +57,8 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                       Expanded(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(4),
-                          child: Image.network(
-                            index == 1
-                                ? img_url1
-                                : (index % 3 == 0 ? img_url2 : img_url3),
+                          child: CachedNetworkImage(
+                            imageUrl: imagesList[index],
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -74,15 +80,17 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
+                                _currentImg = index;
                                 isPressed = !isPressed;
                               });
                             },
                             child: Icon(
-                              isPressed
+                              _currentImg == index
                                   ? Icons.favorite
                                   : Icons.favorite_outline,
-                              color:
-                                  isPressed ? AppColors.red2 : AppColors.white,
+                              color: _currentImg == index
+                                  ? AppColors.red2
+                                  : AppColors.white,
                             ),
                           )
                         ],
@@ -91,7 +99,7 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                         height: 10,
                       ),
                       const Text(
-                        'White strap plunge top',
+                        'Adidas Predator X3.21',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -110,7 +118,7 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
             ),
           );
         },
-        childCount: 10,
+        childCount: imagesList.length,
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

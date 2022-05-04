@@ -20,7 +20,7 @@ class CommentBoxWidget extends StatelessWidget {
         ),
       ),
       child: Row(
-        children: [
+        children: const [
           Expanded(
             child: Padding(
               padding: EdgeInsets.only(left: 16),

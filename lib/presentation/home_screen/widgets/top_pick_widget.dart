@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:music_app/presentation/home_screen/pages/home_detail.dart';
+import 'package:music_app/presentation/home_screen/pages/home_detail_screen.dart';
 import '../../../data/resources/dimensions.dart';
 
 class TopPickWidget extends StatelessWidget {
@@ -31,7 +31,7 @@ class TopPickWidget extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) {
-                        return HomeDetail(imagesList[index]);
+                        return HomeDetailScreen(imagesList[index]);
                       },
                     ),
                   );

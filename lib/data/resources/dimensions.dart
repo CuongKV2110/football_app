@@ -59,6 +59,9 @@ class AppDimensions {
   static double d1_2w = 1.2.w;
   static double d1w = 1.0.w;
 
+  static double d180h = 180.0.h;
+  static double d170h = 170.0.h;
+  static double d150h = 150.0.h;
   static double d100h = 100.0.h;
   static double d90h = 90.0.h;
   static double d74h = 74.0.h;

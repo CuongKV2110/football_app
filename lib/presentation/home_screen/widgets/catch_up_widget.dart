@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
-import '../pages/home_detail.dart';
+import '../pages/home_detail_screen.dart';
 
 class CatchUpWidget extends StatelessWidget {
   final List<String> imagesList = [
@@ -35,7 +35,7 @@ class CatchUpWidget extends StatelessWidget {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) {
-                            return HomeDetail(imagesList[index]);
+                            return HomeDetailScreen(imagesList[index]);
                           },
                         ),
                       );

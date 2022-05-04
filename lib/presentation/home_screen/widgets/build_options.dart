@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/dimensions.dart';
-import 'package:music_app/presentation/home_screen/widgets/home_slider_dots.dart';
 import '../../../data/resources/colors.dart';
 import '../../live_screen/pages/live_screen.dart';
 
@@ -25,12 +24,11 @@ class _BuildOptionsState extends State<BuildOptions> {
 
   final List<String> imagesList2 = [
     'https://i.pinimg.com/originals/bc/b9/b2/bcb9b2c63242c484ad0eba092cd44808.jpg',
-    'https://wallpaperaccess.com/full/151681.jpg',
-    'http://vietmytravel.com.vn/wp-content/uploads/2018/01/du-lich-uc-gia-re-vietmytravel-600x600-600x600.jpg',
-    'https://image-us.24h.com.vn/upload/1-2022/images/2022-03-21//1647864653-1647841271-nd2--8--width1079height1335.jpg',
-    'https://www.rebeccaandtheworld.com/wp-content/uploads/2019/10/Rio-de-Janeiro-itinerary-16-Sep-2020.jpg',
+    'https://images.unsplash.com/photo-1630410139620-15d3a0791a5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cmlvJTIwZGUlMjBqYW5laXJvJTIwYmVhY2h8ZW58MHx8MHx8&w=1000&q=80',
+    'https://i.pinimg.com/originals/55/70/cd/5570cdd110f1a7b362eef36fb33b071e.jpg',
+    'https://i.pinimg.com/1200x/3a/dd/3b/3add3b2768cde86edbc47b1ef177d720.jpg',
     'https://64.media.tumblr.com/3929e6074c8b4285e8a8b8e809fc5e74/tumblr_ndparehXaA1sjl3qko1_1280.jpg',
-    'https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/05_2019/new-york.jpg',
+    'https://www.dulichhoanmy.com/Upload/images/stories/vong_quanh_nuoc_my/diemden_my/2020/du-lich-my-new-york-1.jpg',
     'https://manager.airline24h.com/Upload/images/da%20nang%2014.jpg',
     'https://images.unsplash.com/photo-1624253321171-1be53e12f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8amFwb258ZW58MHx8MHx8&w=1000&q=80',
   ];
@@ -45,6 +43,7 @@ class _BuildOptionsState extends State<BuildOptions> {
   ];
 
   int _currentIndex = 1;
+  int _currentImg = 0;
   bool isPressed = false;
 
   final CarouselController _controller = CarouselController();
@@ -81,6 +80,7 @@ class _BuildOptionsState extends State<BuildOptions> {
       onTap: () {
         setState(() {
           _currentIndex = index;
+          _currentImg = -1;
         });
       },
       child: Container(
@@ -134,7 +134,7 @@ class _BuildOptionsState extends State<BuildOptions> {
                   child: Image.network(
                     img_url,
                     width: AppDimensions.d70w,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 onTap: () {
@@ -161,14 +161,18 @@ class _BuildOptionsState extends State<BuildOptions> {
               (int pageIndex) {
                 return GestureDetector(
                   onTap: () {
-                    _controller.animateToPage(pageIndex);
+                    print('IN');
                     print(pageIndex.toString());
-                    /*setState(() {
-                      isPressed = !isPressed;
-                    });*/
+                    print(_currentImg.toString());
+                    _controller.animateToPage(pageIndex);
+                    setState(() {
+                      _currentImg = pageIndex;
+                    });
+                    print(pageIndex.toString());
+                    print(_currentImg.toString());
                   },
                   child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 150),
+                    duration: const Duration(milliseconds: 100),
                     margin: const EdgeInsets.symmetric(horizontal: 6),
                     height: 10,
                     width: 20,
@@ -177,7 +181,9 @@ class _BuildOptionsState extends State<BuildOptions> {
                       height: 10,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4),
-                        color: AppColors.gray,
+                        color: pageIndex == _currentImg
+                            ? AppColors.orange2
+                            : AppColors.gray,
                       ),
                     ),
                   ),

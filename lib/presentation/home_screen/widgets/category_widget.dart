@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/colors.dart';
 
 import '../../../data/resources/dimensions.dart';
-import '../pages/home_detail.dart';
+import '../pages/home_detail_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
   final List<String> imagesList = [
@@ -34,7 +34,7 @@ class CategoryWidget extends StatelessWidget {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) {
-                            return HomeDetail(imagesList[index]);
+                            return HomeDetailScreen(imagesList[index]);
                           },
                         ),
                       );

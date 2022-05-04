@@ -51,7 +51,7 @@ class _BuildDrawerState extends State<BuildDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.black1,
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 24),

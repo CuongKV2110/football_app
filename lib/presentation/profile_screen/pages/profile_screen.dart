@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/colors.dart';
 import 'package:music_app/presentation/profile_screen/widgets/build_content.dart';
-import 'package:music_app/presentation/profile_screen/widgets/build_trending.dart';
-
 import '../widgets/build_profile.dart';
-import '../widgets/build_stories.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
