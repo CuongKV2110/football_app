@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../../data/models/shop_detail.dart';
 import '../../../data/resources/colors.dart';
 
 class BuildShopDetail extends StatefulWidget {
@@ -10,20 +11,97 @@ class BuildShopDetail extends StatefulWidget {
 }
 
 class _BuildShopDetailState extends State<BuildShopDetail> {
-  final List<String> imagesList = [
-    'https://cf.shopee.vn/file/3f217175d2ef0417ec83325907137a47',
-    'https://cf.shopee.vn/file/fbfdad77c8d108e2f6aff2036c8f8980',
-    'https://file.hstatic.net/1000061481/file/2.3_c3d5765c94e440c5b408a6849fc70466.jpeg',
-    'https://cf.shopee.vn/file/7203786a758abb3f916e729e73dd2a88',
-    'https://vn-live-01.slatic.net/p/b3a8ea7dafb92528edd3fdee3bbeef01.jpg',
-    'https://file.hstatic.net/1000061481/file/giay_co_nhan_tao_tot__4__c4441963d57949f686c024e00dfa5e96.jpg',
-    'https://cf.shopee.vn/file/fc749d2ba69234945471b263a36d76d9',
-    'https://www.sport9.vn/images/uploaded/Vapor%2013%20FTL2/87c301bb223ed860812f.jpg',
-    'https://giaydabonghana.com/wp-content/uploads/2019/03/giay-da-bong-san-co-nhan-tao-mitre-vang-tf-hana-1.jpg',
-    'https://i.pinimg.com/originals/36/bf/43/36bf43eabcbd15f6c5215e3a056d21e5.jpg',
-  ];
-  bool isPressed = false;
-  int _currentImg = -1;
+  final List<ShopDetail> list = [];
+
+  @override
+  void initState() {
+    list.add(
+      ShopDetail(
+        img:
+            'https://file.hstatic.net/1000061481/file/2.3_c3d5765c94e440c5b408a6849fc70466.jpeg',
+        name: 'Adidas Predator X3.21',
+        isTym: false,
+        cost: 30,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img: 'https://cf.shopee.vn/file/3f217175d2ef0417ec83325907137a47',
+        name: 'Nike Phantom 2.1',
+        isTym: false,
+        cost: 25,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img: 'https://cf.shopee.vn/file/fbfdad77c8d108e2f6aff2036c8f8980',
+        name: 'Nike Mercurial Pro',
+        isTym: false,
+        cost: 16,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img: 'https://cf.shopee.vn/file/7203786a758abb3f916e729e73dd2a88',
+        name: 'Thuong Dinh Sport',
+        isTym: false,
+        cost: 53,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img:
+            'https://vn-live-01.slatic.net/p/b3a8ea7dafb92528edd3fdee3bbeef01.jpg',
+        name: 'Puma Special 2.2',
+        isTym: false,
+        cost: 28,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img:
+            'https://file.hstatic.net/1000061481/file/giay_co_nhan_tao_tot__4__c4441963d57949f686c024e00dfa5e96.jpg',
+        name: 'Adidas Predator X20.3',
+        isTym: false,
+        cost: 23,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img: 'https://cf.shopee.vn/file/fc749d2ba69234945471b263a36d76d9',
+        name: 'Puma Neymar Pro',
+        isTym: false,
+        cost: 43,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img:
+            'https://www.sport9.vn/images/uploaded/Vapor%2013%20FTL2/87c301bb223ed860812f.jpg',
+        name: 'Nike Focus X4.5',
+        isTym: false,
+        cost: 51,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img:
+            'https://giaydabonghana.com/wp-content/uploads/2019/03/giay-da-bong-san-co-nhan-tao-mitre-vang-tf-hana-1.jpg',
+        name: 'Mizuno X8 AG',
+        isTym: false,
+        cost: 49,
+      ),
+    );
+    list.add(
+      ShopDetail(
+        img:
+            'https://i.pinimg.com/originals/36/bf/43/36bf43eabcbd15f6c5215e3a056d21e5.jpg',
+        name: 'Adidas Special Summer',
+        isTym: false,
+        cost: 62,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +136,7 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(4),
                           child: CachedNetworkImage(
-                            imageUrl: imagesList[index],
+                            imageUrl: list[index].img,
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -68,8 +146,8 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                       ),
                       Row(
                         children: [
-                          const Text(
-                            '\$ 25.99',
+                          Text(
+                            '\$' + list[index].cost.toString(),
                             style: TextStyle(
                               color: AppColors.orange1,
                               fontWeight: FontWeight.bold,
@@ -80,15 +158,14 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
-                                _currentImg = index;
-                                isPressed = !isPressed;
+                                list[index].isTym = !list[index].isTym;
                               });
                             },
                             child: Icon(
-                              _currentImg == index
+                              list[index].isTym
                                   ? Icons.favorite
                                   : Icons.favorite_outline,
-                              color: _currentImg == index
+                              color: list[index].isTym
                                   ? AppColors.red2
                                   : AppColors.white,
                             ),
@@ -98,8 +175,8 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                       const SizedBox(
                         height: 10,
                       ),
-                      const Text(
-                        'Adidas Predator X3.21',
+                      Text(
+                        list[index].name,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -118,7 +195,7 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
             ),
           );
         },
-        childCount: imagesList.length,
+        childCount: list.length,
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

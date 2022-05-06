@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/resources/colors.dart';
 
-class Comment extends StatelessWidget {
+class CommentDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(

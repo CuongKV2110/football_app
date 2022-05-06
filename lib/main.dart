@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:music_app/injection.dart';
 import 'package:music_app/presentation/splash_screen/pages/splash_screen.dart';
 import 'package:sizer/sizer.dart';
 
@@ -7,19 +8,15 @@ import 'data/resources/colors.dart';
 import 'generated/l10n.dart';
 
 void main() {
-  runApp(const MyApp());
+  configureDependencies();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, deviceType) {
-        /*SystemChrome.setSystemUIOverlayStyle(
-            SystemUiOverlayStyle(statusBarColor: Colors.white));*/
         return MaterialApp(
           color: AppColors.white,
           debugShowCheckedModeBanner: false,

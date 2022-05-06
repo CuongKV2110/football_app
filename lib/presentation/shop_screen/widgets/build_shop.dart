@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:music_app/data/models/shop.dart';
 
 import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
@@ -18,17 +19,61 @@ class _BuildShopState extends State<BuildShop> {
   String img_url1 =
       'https://i.pinimg.com/736x/e3/af/24/e3af24414fb250041a4589a4148e9201.jpg';
   String img_url2 =
-      'https://preview.redd.it/z2crwms8eox61.jpg?auto=webp&s=177c534c79de7e168466e0948619cca367d16b83';
+      'https://i.pinimg.com/550x/ac/7f/f5/ac7ff52795234bc096f3a3f5614a2e88.jpg';
   String img_url3 =
-      'https://i.vietgiaitri.com/2021/6/20/cau-thu-kai-havertz-chuong-mac-do-streetwear-ngoai-doi-a82-5835715.jpg';
+      'https://i.pinimg.com/550x/ac/7f/f5/ac7ff52795234bc096f3a3f5614a2e88.jpg';
   String img_url4 =
-      'https://img.okezone.com/content/2020/08/19/51/2264335/ini-penyebab-kai-havertz-belum-kunjung-gabung-chelsea-jNl2jnzkKt.jpg';
+      'https://cdn.bongdaplus.vn/Assets/Media/2021/05/18/77/Mason-Mount-xuat-sac-nhat-chelsea.jpg';
   String img_url5 =
       'https://localbrand.vn/wp-content/uploads/2021/07/cau-thu-dien-trai-mua-euro-masonmount-1.jpg';
-  String img_url6 = 'https://images.indianexpress.com/2020/03/mason-mount.jpg';
+  String img_url6 =
+      'http://media.tinthethao.com.vn/files/bongda/2021/02/02/untitled9-1711png.png';
+  String img_url7 =
+      'https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/10/30/969136/Cristiano-Ronaldo4.jpg';
+  String img_url8 =
+      'https://znews-photo.zingcdn.me/w660/Uploaded/qxjrcqjwq/2020_04_09/d8pi64rxoau0ibx_15601238775481684274358.jpg';
+  String img_url9 =
+      'http://media.tinthethao.com.vn/files/bongda/2021/12/30/ronaldo-1057png.png';
   String content =
       'Kai Havertz currently plays for Chelsea, he plays as a striker. He has an amazing appearance, but he has not had a lover';
-  bool isPressed = false;
+
+  final List<Shop> listShop = [];
+
+  @override
+  void initState() {
+    listShop.add(
+      Shop(
+        img1: img_url1,
+        img2: img_url2,
+        img3: img_url3,
+        content: '',
+        isTym: false,
+        isSave: false,
+      ),
+    );
+    listShop.add(
+      Shop(
+        img1: img_url4,
+        img2: img_url5,
+        img3: img_url6,
+        content:
+            'Chelsea matches including the one against Barnsley in the third round of the EFL Cup on 23 September, which ended in a 6–0 win at home',
+        isTym: false,
+        isSave: false,
+      ),
+    );
+    listShop.add(
+      Shop(
+        img1: img_url7,
+        img2: img_url8,
+        img3: img_url9,
+        content:
+            'Ronaldo made his international debut for Portugal in 2003 at the age of 18 and has since earned over 180 caps, making him Portugal',
+        isTym: false,
+        isSave: false,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +108,9 @@ class _BuildShopState extends State<BuildShop> {
                         const SizedBox(height: 10),
                         _buildImage(index),
                         const SizedBox(height: 10),
-                        _buildIcon(),
+                        _buildIcon(index),
                         const SizedBox(height: 10),
-                        _buildContent(),
+                        _buildContent(index),
                       ],
                     ),
                   ),
@@ -77,7 +122,7 @@ class _BuildShopState extends State<BuildShop> {
             ],
           );
         },
-        childCount: 10,
+        childCount: listShop.length,
       ),
     );
   }
@@ -101,9 +146,10 @@ class _BuildShopState extends State<BuildShop> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: CachedNetworkImage(
-                  imageUrl: index % 2 == 0 ? img_url1 : img_url2,
-                  fit: BoxFit.fill,
+                  imageUrl: listShop[index].img1,
+                  fit: BoxFit.fitHeight,
                   width: AppDimensions.d50w,
+                  height: AppDimensions.d40h,
                 ),
               ),
             ),
@@ -116,7 +162,7 @@ class _BuildShopState extends State<BuildShop> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(6),
                     child: CachedNetworkImage(
-                      imageUrl: index % 2 == 0 ? img_url3 : img_url5,
+                      imageUrl: listShop[index].img2,
                       fit: BoxFit.fill,
                       width: AppDimensions.d30w,
                       height: 100,
@@ -130,7 +176,7 @@ class _BuildShopState extends State<BuildShop> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(6),
                     child: CachedNetworkImage(
-                      imageUrl: index % 2 == 0 ? img_url4 : img_url6,
+                      imageUrl: listShop[index].img3,
                       fit: BoxFit.fill,
                       width: AppDimensions.d30w,
                       height: 100,
@@ -145,7 +191,7 @@ class _BuildShopState extends State<BuildShop> {
     );
   }
 
-  Widget _buildIcon() {
+  Widget _buildIcon(int index) {
     return Row(
       children: [
         Row(
@@ -153,18 +199,18 @@ class _BuildShopState extends State<BuildShop> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  isPressed = !isPressed;
+                  listShop[index].isTym = !listShop[index].isTym;
                 });
               },
               child: Icon(
-                isPressed ? Icons.favorite : Icons.favorite_outline,
-                color: isPressed ? AppColors.red2 : AppColors.white,
+                listShop[index].isTym ? Icons.favorite : Icons.favorite_outline,
+                color: listShop[index].isTym ? AppColors.red2 : AppColors.white,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 4,
             ),
-            Text(
+            const Text(
               '2.3K',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -175,17 +221,24 @@ class _BuildShopState extends State<BuildShop> {
           ],
         ),
         const Spacer(),
-        const Icon(
-          Icons.bookmark_outline,
-          color: AppColors.white,
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              listShop[index].isSave = !listShop[index].isSave;
+            });
+          },
+          child: Icon(
+            listShop[index].isSave ? Icons.bookmark : Icons.bookmark_outline,
+            color: AppColors.white,
+          ),
         ),
       ],
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(int index) {
     return Text(
-      content,
+      listShop[index].content,
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(color: AppColors.white, fontSize: 12, height: 1.7),

@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../data/models/comment.dart';
 import '../../../data/resources/colors.dart';
-import 'comment_favorite.dart';
 
 class CommentUser extends StatelessWidget {
-  const CommentUser({Key? key}) : super(key: key);
+  Comment comment;
+
+  CommentUser(this.comment);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +16,9 @@ class CommentUser extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 16,
-            backgroundImage: CachedNetworkImageProvider(
-                'https://cdn.vox-cdn.com/thumbor/9YomP2FLVbTYiyMG46vA0WrZF3o=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/23294514/1380809015.jpg'),
+            backgroundImage: CachedNetworkImageProvider(comment.avt),
           ),
           const SizedBox(
             width: 6,
@@ -26,8 +27,8 @@ class CommentUser extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Jurgen Kloop',
+                Text(
+                  comment.name,
                   style: TextStyle(
                     color: AppColors.gray,
                     fontSize: 12,
@@ -37,8 +38,8 @@ class CommentUser extends StatelessWidget {
                 const SizedBox(
                   height: 4,
                 ),
-                const Text(
-                  'Liverpool will winner in C1 2022',
+                Text(
+                  comment.comment,
                   style: TextStyle(
                     color: AppColors.white,
                     fontSize: 14,
@@ -49,9 +50,9 @@ class CommentUser extends StatelessWidget {
                   height: 4,
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Text(
-                      '7 hours ago',
+                      comment.time,
                       style: TextStyle(
                         color: AppColors.white,
                         fontSize: 12,
@@ -72,7 +73,22 @@ class CommentUser extends StatelessWidget {
               ],
             ),
           ),
-          const CommentFavorite(),
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            children: [
+              Icon(
+                Icons.favorite_outline,
+                color: AppColors.gray,
+                size: 20,
+              ),
+              Text(
+                comment.tym.toString(),
+                style: TextStyle(color: AppColors.gray),
+              )
+            ],
+          ),
         ],
       ),
     );

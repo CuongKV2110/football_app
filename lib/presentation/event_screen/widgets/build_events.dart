@@ -71,11 +71,13 @@ class BuildEvents extends StatelessWidget {
                                   fontSize: 24,
                                 ),
                               ),
-                              Text(
-                                'Sep',
-                                style: TextStyle(
-                                  color: AppColors.black1,
-                                  fontSize: 24,
+                              Expanded(
+                                child: Text(
+                                  'Sep',
+                                  style: TextStyle(
+                                    color: AppColors.black1,
+                                    fontSize: 24,
+                                  ),
                                 ),
                               )
                             ],

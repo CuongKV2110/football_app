@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:music_app/data/models/shop_detail.dart';
 
 import '../../../data/resources/colors.dart';
 import '../widgets/build_shop_detail.dart';
