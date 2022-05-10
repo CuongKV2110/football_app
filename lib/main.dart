@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:music_app/injection.dart';
+import 'package:music_app/presentation/home_screen/pages/home_screen.dart';
 import 'package:music_app/presentation/splash_screen/pages/splash_screen.dart';
 import 'package:sizer/sizer.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData.light(),
           home: const SafeArea(
-            child: SplashScreen(),
+            child: HomeScreen(),
           ),
           locale: const Locale('en'),
           localizationsDelegates: const [

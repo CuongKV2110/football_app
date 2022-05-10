@@ -1,14 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:music_app/data/models/comment.dart';
 
-import '../../../data/models/comment.dart';
 import '../../../data/resources/colors.dart';
 
-class CommentUser extends StatelessWidget {
+class CommentUser extends StatefulWidget {
   Comment comment;
 
   CommentUser(this.comment);
 
+  @override
+  _CommentUserState createState() => _CommentUserState();
+}
+
+class _CommentUserState extends State<CommentUser> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +23,7 @@ class CommentUser extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 16,
-            backgroundImage: CachedNetworkImageProvider(comment.avt),
+            backgroundImage: CachedNetworkImageProvider(widget.comment.avt),
           ),
           const SizedBox(
             width: 6,
@@ -28,7 +33,7 @@ class CommentUser extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  comment.name,
+                  widget.comment.name,
                   style: TextStyle(
                     color: AppColors.gray,
                     fontSize: 12,
@@ -39,7 +44,7 @@ class CommentUser extends StatelessWidget {
                   height: 4,
                 ),
                 Text(
-                  comment.comment,
+                  widget.comment.comment,
                   style: TextStyle(
                     color: AppColors.white,
                     fontSize: 14,
@@ -52,7 +57,7 @@ class CommentUser extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      comment.time,
+                      widget.comment.time,
                       style: TextStyle(
                         color: AppColors.white,
                         fontSize: 12,
@@ -76,18 +81,28 @@ class CommentUser extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          Column(
-            children: [
-              Icon(
-                Icons.favorite_outline,
-                color: AppColors.gray,
-                size: 20,
-              ),
-              Text(
-                comment.tym.toString(),
-                style: TextStyle(color: AppColors.gray),
-              )
-            ],
+          GestureDetector(
+            child: Column(
+              children: [
+                Icon(
+                  Icons.favorite_outline,
+                  color:
+                      widget.comment.isPress ? AppColors.red2 : AppColors.gray,
+                  size: 20,
+                ),
+                Text(
+                  widget.comment.tym.toString(),
+                  style: TextStyle(
+                    color: AppColors.gray,
+                  ),
+                )
+              ],
+            ),
+            onTap: () {
+              setState(() {
+                widget.comment.isPress = !widget.comment.isPress;
+              });
+            },
           ),
         ],
       ),

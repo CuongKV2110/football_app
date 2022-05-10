@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:music_app/presentation/watch_screen/pages/watch_detail_screen.dart';
 import '../../../data/models/shop_detail.dart';
 import '../../../data/resources/colors.dart';
 
@@ -12,6 +13,23 @@ class BuildShopDetail extends StatefulWidget {
 
 class _BuildShopDetailState extends State<BuildShopDetail> {
   final List<ShopDetail> list = [];
+  List<ShopDetail> _foundlist = [];
+
+  void _runSearch(String text) {
+    List<ShopDetail> _results = [];
+    if (text.isEmpty) {
+      _results = list;
+    } else {
+      _results = list
+          .where((ShopDetail) =>
+              ShopDetail.name.toLowerCase().contains(text.toLowerCase()))
+          .toList();
+    }
+
+    setState(() {
+      _foundlist = _results;
+    });
+  }
 
   @override
   void initState() {
@@ -108,87 +126,98 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(7),
-              gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  AppColors.orange1,
-                  AppColors.orange2,
-                ],
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(1),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7),
-                  color: AppColors.black4,
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return WatchDetailScreen(list[index].img);
+                  },
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(4),
-                          child: CachedNetworkImage(
-                            imageUrl: list[index].img,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '\$' + list[index].cost.toString(),
-                            style: TextStyle(
-                              color: AppColors.orange1,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(7),
+                gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    AppColors.orange1,
+                    AppColors.orange2,
+                  ],
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(1),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    color: AppColors.black4,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(4),
+                            child: CachedNetworkImage(
+                              imageUrl: list[index].img,
+                              fit: BoxFit.fill,
                             ),
                           ),
-                          const Spacer(),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                list[index].isTym = !list[index].isTym;
-                              });
-                            },
-                            child: Icon(
-                              list[index].isTym
-                                  ? Icons.favorite
-                                  : Icons.favorite_outline,
-                              color: list[index].isTym
-                                  ? AppColors.red2
-                                  : AppColors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        list[index].name,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: AppColors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 6,
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              '\$' + list[index].cost.toString(),
+                              style: TextStyle(
+                                color: AppColors.orange1,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
+                            const Spacer(),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  list[index].isTym = !list[index].isTym;
+                                });
+                              },
+                              child: Icon(
+                                list[index].isTym
+                                    ? Icons.favorite
+                                    : Icons.favorite_outline,
+                                color: list[index].isTym
+                                    ? AppColors.red2
+                                    : AppColors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          list[index].name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: AppColors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

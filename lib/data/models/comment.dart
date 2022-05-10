@@ -4,6 +4,7 @@ class Comment {
   String comment;
   String time;
   int tym;
+  bool isPress;
 
   Comment({
     required this.name,
@@ -11,5 +12,6 @@ class Comment {
     required this.comment,
     required this.time,
     required this.tym,
+    required this.isPress,
   });
 }

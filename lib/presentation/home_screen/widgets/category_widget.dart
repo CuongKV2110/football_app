@@ -7,11 +7,12 @@ import '../pages/home_detail_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
   final List<String> imagesList = [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjLD1McYRXkfb249H509jbFgOHspN9rkeYXU9lJf04tIdB4SH5TQ1ryyqNAt2EUC5Aq0&usqp=CAU',
-    'https://blog.reverbnation.com/wp-content/uploads/2021/04/commercial-and-bedroom-producer.jpg',
-    'https://www.mckinsey.com/~/media/McKinsey/Featured%20Insights/Asia%20Pacific/Reimagining%20tourism%20How%20Vietnam%20can%20accelerate%20travel%20recovery/1164214961-1536x1536.jpg',
-    'https://cdn-1.motorsport.com/images/amp/YP3Qxl32/s1000/marc-marquez-repsol-honda-team.jpg',
-    'https://media.cntraveler.com/photos/5a84852c7211e1293261ceb8/16:9/w_2560,c_limit/Skydive-Dubai_2018_GettyImages-643320488.jpg',
+    'https://vnn-imgs-f.vgcloud.vn/2020/10/20/14/champions-league.jpg',
+    'https://thumbs.dreamstime.com/b/award-championship-trophy-22229452.jpg',
+    'https://news.cgtn.com/news/2021-05-31/Copa-America-no-host-after-Argentina-dropped-due-to-COVID-19-10HR7nlXepy/img/a491912286784128ab62992fb0c63eae/a491912286784128ab62992fb0c63eae-1920.png',
+    'https://images.news18.com/ibnlive/uploads/2022/05/fifa-world-cup-trophy.jpg',
+    'https://phantom-marca.unidadeditorial.es/5ac2cfca4ca82b6cd89db3d2346fc853/resize/1320/f/jpg/assets/multimedia/imagenes/2021/07/11/16260319322052.jpg',
+    'https://staticg.sportskeeda.com/editor/2019/06/318e9-15611111738749-800.jpg',
   ];
   @override
   Widget build(BuildContext context) {

@@ -15,13 +15,13 @@ class WatchContent extends StatelessWidget {
 
   WatchContent(this.content);
 
-  var img_url1 =
-      'https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2021/10/04192921/RhDHmJRtoRr6mHqNSemP07MjfMpu60zde1uSEsCQ.jpeg';
-  String img_url2 =
-      'https://media.insider.in/image/upload/c_crop,g_custom/v1630305558/y3vzwe47illwoi4bpvu9.jpg';
-  String img_url3 =
-      'https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_1316/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1582882035%2Fzz37gogm26k48ibvnpb4.jpg';
-  int lenght = 10;
+  final List<String> _list = [
+    'https://i1.wp.com/9sportpro.com/wp-content/uploads/2018/05/real-madrid-liverpool-1414002647-optimised.png?resize=672%2C345&ssl=1',
+    'https://static.bongda24h.vn/medias/standard/2022/4/26/truc-tiep-cup-c1-man-city-real-madrid-link-xem-champions-league-27-4-2022.jpg',
+    'https://cdn2.mediotiempo.com/uploads/media/2022/04/27/liverpool-vs-villarreal-semifinales-champions.jpg',
+    'https://phantom-marca.unidadeditorial.es/f9a75bc808e16fb2136e400d3d5adf99/resize/1320/f/jpg/assets/multimedia/imagenes/2022/04/12/16497164410384.jpg',
+    'https://static.bongda24h.vn/medias/standard/2022/3/9/link-xem-real-madrid-vs-psg-cup-c1-2022.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -59,17 +59,17 @@ class WatchContent extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: lenght,
+              itemCount: _list.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      index == 0 ? 18 : 0, 0, index == lenght - 1 ? 0 : 20, 0),
+                  padding: EdgeInsets.fromLTRB(index == 0 ? 18 : 0, 0,
+                      index == _list.length - 1 ? 0 : 20, 0),
                   child: GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) {
-                            return WatchDetailScreen();
+                            return WatchDetailScreen(_list[index]);
                           },
                         ),
                       );
@@ -78,9 +78,7 @@ class WatchContent extends StatelessWidget {
                       children: [
                         ClipRRect(
                           child: CachedNetworkImage(
-                            imageUrl: content == 'Live'
-                                ? img_url1
-                                : (content == 'Current' ? img_url2 : img_url3),
+                            imageUrl: _list[index],
                             width: AppDimensions.d80w,
                             height: AppDimensions.d30h,
                             fit: BoxFit.fill,

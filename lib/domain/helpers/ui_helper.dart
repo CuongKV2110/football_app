@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:music_app/data/resources/colors.dart';
 
 class UiHelper {
   static bool isModalShowing = false;
@@ -23,10 +24,12 @@ class UiHelper {
               width: 70,
               height: 70,
               child: Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const CupertinoActivityIndicator(
-                    radius: 12,
-                  )),
+                padding: const EdgeInsets.all(8),
+                child: const CupertinoActivityIndicator(
+                  radius: 12,
+                  color: AppColors.white,
+                ),
+              ),
             ),
           ),
         );

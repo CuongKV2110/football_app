@@ -30,6 +30,7 @@ class _BuildCommentState extends State<BuildComment> {
             'I think MU will comeback stronger in 2023 and i will training with team more to has EPL 2023',
         time: '12 minutes ago',
         tym: 6321,
+        isPress: false,
       ),
     );
     listComment.add(
@@ -40,6 +41,7 @@ class _BuildCommentState extends State<BuildComment> {
         comment: 'I think MU will comeback stronger in 2023',
         time: '2 hours ago',
         tym: 532,
+        isPress: false,
       ),
     );
     listComment.add(
@@ -50,6 +52,7 @@ class _BuildCommentState extends State<BuildComment> {
         comment: 'I think MU will comeback stronger in 2023',
         time: '4 hours ago',
         tym: 421,
+        isPress: false,
       ),
     );
     listComment.add(
@@ -60,6 +63,7 @@ class _BuildCommentState extends State<BuildComment> {
         comment: 'Bayern Munich still Bigest Foootball Club in the world',
         time: '12',
         tym: 964,
+        isPress: false,
       ),
     );
     listComment.add(
@@ -70,6 +74,7 @@ class _BuildCommentState extends State<BuildComment> {
         comment: 'I will travel to Las Vegas and relax here after Ligue 1',
         time: '6 hours aho',
         tym: 1231,
+        isPress: false,
       ),
     );
     listComment.add(
@@ -80,6 +85,7 @@ class _BuildCommentState extends State<BuildComment> {
         comment: 'I think I will has goal keeper is the best 2022 of EPL',
         time: '11 hours ago',
         tym: 137,
+        isPress: false,
       ),
     );
     listComment.add(
@@ -90,6 +96,7 @@ class _BuildCommentState extends State<BuildComment> {
         comment: 'Man City need some change to the next season',
         time: '7 hours ago',
         tym: 232,
+        isPress: false,
       ),
     );
 
@@ -101,6 +108,7 @@ class _BuildCommentState extends State<BuildComment> {
         comment: 'Dortmund has shopping very uch in summer 2022',
         time: '12 hours ago',
         tym: 123,
+        isPress: false,
       ),
     );
   }
@@ -271,10 +279,22 @@ class _BuildCommentState extends State<BuildComment> {
                         ),
                         Column(
                           children: [
-                            Icon(
-                              Icons.favorite_outline,
-                              color: AppColors.gray,
-                              size: 20,
+                            GestureDetector(
+                              child: Icon(
+                                listComment[index].isPress
+                                    ? Icons.favorite
+                                    : Icons.favorite_outline,
+                                color: listComment[index].isPress
+                                    ? AppColors.red2
+                                    : AppColors.gray,
+                                size: 20,
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  listComment[index].isPress =
+                                      !listComment[index].isPress;
+                                });
+                              },
                             ),
                             Text(
                               listComment[index].tym.toString(),

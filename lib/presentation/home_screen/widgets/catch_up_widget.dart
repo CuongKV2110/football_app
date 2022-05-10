@@ -7,11 +7,11 @@ import '../pages/home_detail_screen.dart';
 
 class CatchUpWidget extends StatelessWidget {
   final List<String> imagesList = [
-    'https://levi.pt/apps/frontend/public/static/img/your-voice-your-way/slide/desktop/levis-music-project-20.jpg',
-    'https://www.jonesaroundtheworld.com/wp-content/uploads/2018/12/Euphoria-Music-Festivals-in-Texas-2020.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOy7RHmEr4lOiYf3NBp6gkxHwdbMg2_jzPNYERoAjlMXKnpgsfqDBYRzkcNsGn2R1hX5E&usqp=CAU',
-    'https://imgix.bustle.com/uploads/getty/2022/1/4/abacf7e4-1aaf-446c-a68f-6eea27e4f790-getty-938603878.jpg?w=1200&h=630&fit=crop&crop=faces&fm=jpg',
-    'https://content.ticketarena.co.uk/media/16608/67658690_10156869451539177_2868809369410076672_o.jpg?height=675&mode=crop&width=1200',
+    'https://static.bongda24h.vn/medias/standard/2022/3/16/7.png',
+    'https://icdn.dantri.com.vn/thumb_w/770/2022/04/13/benzema-11-1649804961454.jpg',
+    'https://static.bongda24h.vn/medias/original/2022/3/7/kevin-de-bruyne-phan-khich-truoc-vien-canh-tro-lai-wembley.png',
+    'https://onsportimg.vtvcab.vn/image-upload/07203147-9d3b-4add-82bc-ca36f4e47b7f.jpeg',
+    'https://vcdn-thethao.vnecdn.net/2021/06/07/e2pcodrx0aiefdj-jpeg-162304073-4092-2311-1623040842.jpg',
   ];
 
   @override

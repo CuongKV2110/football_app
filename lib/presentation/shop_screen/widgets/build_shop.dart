@@ -18,8 +18,7 @@ class BuildShop extends StatefulWidget {
 class _BuildShopState extends State<BuildShop> {
   String img_url1 =
       'https://i.pinimg.com/736x/e3/af/24/e3af24414fb250041a4589a4148e9201.jpg';
-  String img_url2 =
-      'https://i.pinimg.com/550x/ac/7f/f5/ac7ff52795234bc096f3a3f5614a2e88.jpg';
+  String img_url2 = 'https://kenhtinviet.com/uploads/2021/03/xja1616083736.jpg';
   String img_url3 =
       'https://i.pinimg.com/550x/ac/7f/f5/ac7ff52795234bc096f3a3f5614a2e88.jpg';
   String img_url4 =
@@ -34,9 +33,6 @@ class _BuildShopState extends State<BuildShop> {
       'https://znews-photo.zingcdn.me/w660/Uploaded/qxjrcqjwq/2020_04_09/d8pi64rxoau0ibx_15601238775481684274358.jpg';
   String img_url9 =
       'http://media.tinthethao.com.vn/files/bongda/2021/12/30/ronaldo-1057png.png';
-  String content =
-      'Kai Havertz currently plays for Chelsea, he plays as a striker. He has an amazing appearance, but he has not had a lover';
-
   final List<Shop> listShop = [];
 
   @override
@@ -46,7 +42,8 @@ class _BuildShopState extends State<BuildShop> {
         img1: img_url1,
         img2: img_url2,
         img3: img_url3,
-        content: '',
+        content:
+            'Havertz made his senior debut with the club at the same year. Upon making his debut, Havertz became the club\'s youngest-ever debutant ',
         isTym: false,
         isSave: false,
       ),
@@ -147,7 +144,7 @@ class _BuildShopState extends State<BuildShop> {
                 borderRadius: BorderRadius.circular(6),
                 child: CachedNetworkImage(
                   imageUrl: listShop[index].img1,
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.fill,
                   width: AppDimensions.d50w,
                   height: AppDimensions.d40h,
                 ),

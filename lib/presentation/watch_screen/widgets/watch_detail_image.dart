@@ -5,9 +5,8 @@ import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
 
 class WatchDetailImage extends StatelessWidget {
-  String img_url =
-      'https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2021/10/04192921/RhDHmJRtoRr6mHqNSemP07MjfMpu60zde1uSEsCQ.jpeg';
-
+  String img_url;
+  WatchDetailImage(this.img_url);
   String text1 =
       'My trip to HongKong is very well. I stayed in famous hotel  5 star. Manager is called me but I dont care';
 

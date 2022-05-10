@@ -6,13 +6,15 @@ class SignInBloc extends Cubit<SignInState> {
   SignInBloc() : super(SignInInitial());
   String errorMessage = '';
 
+  void dispose() {
+    close();
+  }
+
   Future<void> signIn(String email, String password) async {
-    print('Login');
     emit(SignInLoading());
 
     if (email == 'test@gmail.com' && password == '123456') {
       emit(SignInSuccess());
-      print('Success');
       return;
     }
     if (email.isEmpty) {

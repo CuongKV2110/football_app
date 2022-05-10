@@ -4,6 +4,10 @@ import '../widgets/watch_detail_content.dart';
 import '../widgets/watch_detail_image.dart';
 
 class WatchDetailScreen extends StatelessWidget {
+  String img_url;
+
+  WatchDetailScreen(this.img_url);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -12,7 +16,7 @@ class WatchDetailScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              WatchDetailImage(),
+              WatchDetailImage(img_url),
               SizedBox(
                 height: 20,
               ),

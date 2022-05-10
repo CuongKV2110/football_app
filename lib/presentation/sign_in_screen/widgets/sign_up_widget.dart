@@ -12,13 +12,13 @@ class SignUpWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Didnt have any account ? ',
                 style: TextStyle(color: AppColors.white, fontSize: 14),
               ),
@@ -32,7 +32,7 @@ class SignUpWidget extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Sign Up here',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
@@ -44,10 +44,10 @@ class SignUpWidget extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 4,
           ),
-          Text(
+          const Text(
             'By Singing In, you agree to our terms & conditions',
             style: TextStyle(color: AppColors.white, fontSize: 12),
           )
