@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../event_screen/widgets/build_events.dart';
-import '../../event_screen/widgets/build_events_bar.dart';
 import '../widgets/build_home_bar.dart';
 import '../widgets/build_home_body.dart';
 
