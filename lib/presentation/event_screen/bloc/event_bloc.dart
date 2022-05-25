@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:music_app/data/models/animal.dart';
-import 'package:music_app/data/models/event_model.dart';
 import 'package:music_app/domain/usecases/event_usecases.dart';
 import 'event_state.dart';
 

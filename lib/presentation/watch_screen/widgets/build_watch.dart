@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/presentation/watch_screen/widgets/watch_content.dart';
-import '../../profile_screen/widgets/build_content.dart';
 
 class BuildWatch extends StatelessWidget {
   @override
@@ -11,11 +10,11 @@ class BuildWatch extends StatelessWidget {
           return Column(
             children: [
               WatchContent('Live'),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               WatchContent('Current'),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               WatchContent('Follower'),

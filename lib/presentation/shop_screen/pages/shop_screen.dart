@@ -24,15 +24,14 @@ class _ShopScreenState extends State<ShopScreen>
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: CustomScrollView(
-            physics: BouncingScrollPhysics(),
-            slivers: [
-              BuildShopBar(),
-              BuildShop(),
-            ],
-          ),
-        ),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: const [
+                BuildShopBar(),
+                BuildShop(),
+              ],
+            )),
       ),
     );
   }

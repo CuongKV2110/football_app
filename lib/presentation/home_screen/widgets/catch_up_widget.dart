@@ -6,13 +6,9 @@ import '../../../data/resources/dimensions.dart';
 import '../pages/home_detail_screen.dart';
 
 class CatchUpWidget extends StatelessWidget {
-  final List<String> imagesList = [
-    'https://static.bongda24h.vn/medias/standard/2022/3/16/7.png',
-    'https://icdn.dantri.com.vn/thumb_w/770/2022/04/13/benzema-11-1649804961454.jpg',
-    'https://static.bongda24h.vn/medias/original/2022/3/7/kevin-de-bruyne-phan-khich-truoc-vien-canh-tro-lai-wembley.png',
-    'https://onsportimg.vtvcab.vn/image-upload/07203147-9d3b-4add-82bc-ca36f4e47b7f.jpeg',
-    'https://vcdn-thethao.vnecdn.net/2021/06/07/e2pcodrx0aiefdj-jpeg-162304073-4092-2311-1623040842.jpg',
-  ];
+  List<String> imagesList;
+
+  CatchUpWidget(this.imagesList);
 
   @override
   Widget build(BuildContext context) {

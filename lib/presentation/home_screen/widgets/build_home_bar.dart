@@ -7,67 +7,65 @@ class BuildHomeBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(19, 0, 29, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Hi, Nik Clous',
-              style: TextStyle(
-                color: AppColors.white,
-                fontSize: 18,
-              ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(19, 0, 29, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Hi, Nik Clous',
+            style: TextStyle(
+              color: AppColors.white,
+              fontSize: 18,
             ),
-            Text(
-              'Welcome',
-              style: TextStyle(
-                color: AppColors.white,
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-              ),
+          ),
+          const Text(
+            'Welcome',
+            style: TextStyle(
+              color: AppColors.white,
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Expanded(
-                  child: TextField(
-                    style: TextStyle(color: AppColors.white),
-                    decoration: InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: AppColors.white),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: AppColors.white),
-                      ),
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(color: AppColors.white),
-                      ),
-                      hintText: 'Search for an event',
-                      hintStyle: TextStyle(
-                        color: AppColors.gray,
-                        fontSize: 15,
-                      ),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: AppColors.gray,
-                      ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Expanded(
+                child: TextField(
+                  style: TextStyle(color: AppColors.white),
+                  decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.white),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.white),
+                    ),
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.white),
+                    ),
+                    hintText: 'Search for an event',
+                    hintStyle: TextStyle(
+                      color: AppColors.gray,
+                      fontSize: 15,
+                    ),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: AppColors.gray,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Icon(Ionicons.options_outline,
-                      color: AppColors.orange1),
-                )
-              ],
-            ),
-          ],
-        ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: const Icon(Ionicons.options_outline,
+                    color: AppColors.orange1),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

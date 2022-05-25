@@ -20,21 +20,18 @@ class _BuildHomeScreenState extends State<BuildHomeScreen>
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
-      child: const Scaffold(
-        backgroundColor: Colors.transparent,
-        body: CustomScrollView(
-          physics: BouncingScrollPhysics(),
-          slivers: [
-            BuildHomeBar(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 10,
+      child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: ListView(
+            physics: const BouncingScrollPhysics(),
+            children: const [
+              BuildHomeBar(),
+              SizedBox(
+                height: 20,
               ),
-            ),
-            BuildHomeBody(),
-          ],
-        ),
-      ),
+              BuildHomeBody(),
+            ],
+          )),
     );
   }
 }

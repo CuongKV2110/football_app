@@ -16,12 +16,10 @@ class _EventScreen extends State<EventScreen>
   @override
   bool get wantKeepAlive => true;
 
-  final EventBloc _eventBloc = getIt();
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.transparent,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),

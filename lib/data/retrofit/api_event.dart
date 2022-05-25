@@ -2,7 +2,7 @@ import 'package:music_app/data/models/animal.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 
-import 'api.dart';
+import 'apis.dart';
 part 'api_event.g.dart';
 
 @RestApi(baseUrl: "https://firebasestorage.googleapis.com/")

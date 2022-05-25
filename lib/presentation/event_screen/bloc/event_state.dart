@@ -1,5 +1,3 @@
-import 'package:music_app/data/models/event_model.dart';
-
 import '../../../data/models/animal.dart';
 
 abstract class EventState {

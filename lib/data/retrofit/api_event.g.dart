@@ -23,13 +23,12 @@ class _ApiEvent implements ApiEvent {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(_setStreamType<
-        List<Animal>>(Options(
-            method: 'GET', headers: _headers, extra: _extra)
-        .compose(_dio.options,
-            'v0/b/sonpn-b17dcpt177.appspot.com/o/json%2Fdata_animal.json?alt=media&token=8b8e4431-22dd-430c-b2d3-c6e8a5b652aa',
-            queryParameters: queryParameters, data: _data)
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<Animal>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, 'posts/1/comments',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
         .map((dynamic i) => Animal.fromJson(i as Map<String, dynamic>))
         .toList();

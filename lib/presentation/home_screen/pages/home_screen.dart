@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             elevation: 0,
             leading: Builder(
               builder: (context) => IconButton(
-                icon: new Icon(
+                icon: const Icon(
                   Icons.menu_outlined,
                   color: AppColors.white,
                 ),
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           body: PageView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             onPageChanged: (index) {
               setState(() {
                 _currentIndex = index;

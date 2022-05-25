@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app/injection.dart';
 import 'package:music_app/presentation/event_screen/bloc/event_bloc.dart';
-import 'package:music_app/data/models/event_model.dart';
 import 'package:shimmer/shimmer.dart';
-
 import '../../../data/models/animal.dart';
 import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
-import '../../widgets/build_user.dart';
+
 import '../bloc/event_state.dart';
 
 class EventWidget extends StatefulWidget {
@@ -88,28 +86,6 @@ class _EventWidgetState extends State<EventWidget> {
                 );*/
               },
               child: _buildItem(item),
-              /*child: ListTile(
-                  leading: CircleAvatar(
-                    child: Text(
-                      data[index].description.toString(),
-                      style: TextStyle(color: AppColors.white),
-                    ),
-                  ),
-                  title: Text(
-                    data[index].name,
-                    style: TextStyle(
-                      color: AppColors.green1,
-                      fontSize: 20,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                  ),
-                  subtitle: Text(
-                    data[index].speed,
-                    style: TextStyle(color: AppColors.white),
-                  ),
-                  tileColor: AppColors.orange1,
-                )*/
             ),
             if (index == data.length - 1) const CircularProgressIndicator()
           ],
