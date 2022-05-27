@@ -1,15 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:music_app/data/resources/colors.dart';
-import 'package:music_app/presentation/study_screen/models/category_result.dart';
-import 'package:music_app/presentation/study_screen/pages/study_screen.dart';
+import 'package:music_app/presentation/study_screen/pages/description_screen.dart';
 
 class CategoryWidget extends StatefulWidget {
   String icon;
   String title;
+  String description;
+  bool check;
   Color? color;
 
-  CategoryWidget(this.icon, this.title, {this.color});
+  CategoryWidget(this.icon, this.title, this.description, this.check,
+      {this.color});
 
   @override
   _CategoryWidgetState createState() => _CategoryWidgetState();
@@ -62,6 +66,33 @@ class _CategoryWidgetState extends State<CategoryWidget> {
             ),
           ),
         ),
+        widget.check == true
+            ? Positioned(
+                top: 9,
+                right: 9,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(CupertinoPageRoute(builder: (context) {
+                      return DescriptionScreen(
+                          widget.title, widget.description);
+                    }));
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: AppColors.white,
+                    radius: 10,
+                    child: Center(
+                      child: Icon(
+                        Ionicons.help_outline,
+                        color: AppColors.text,
+                        size: 14,
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            : SizedBox()
       ],
     );
   }
@@ -72,19 +103,3 @@ extension StringExtension on String {
     return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
   }
 }
-
-/*Positioned(
-top: 9,
-right: 9,
-child: CircleAvatar(
-backgroundColor: AppColors.white,
-radius: 10,
-child: Center(
-child: Icon(
-Ionicons.help_outline,
-color: AppColors.text,
-size: 14,
-),
-),
-),
-)*/

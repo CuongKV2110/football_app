@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app/data/resources/colors.dart';
@@ -11,6 +10,7 @@ import 'package:music_app/presentation/study_screen/models/category.dart';
 import 'package:music_app/presentation/study_screen/models/objects.dart';
 import 'package:music_app/presentation/study_screen/models/options.dart';
 import 'package:music_app/presentation/study_screen/widgets/category_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../data/resources/dimensions.dart';
 
@@ -24,20 +24,32 @@ class StudyScreen extends StatefulWidget {
 class _StudyScreenState extends State<StudyScreen> {
   CategoryBloc categoryBloc = getIt();
   ObjectBloc objectBloc = getIt();
-  Options options = Options(
-    categoryId: 0,
-    objectIds: [],
-    categoryIds: [],
-    objectId: 0,
-  );
-
+  Options options = Options(firstId: 0, listChild: [], secondId: 0);
   late int type;
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  int _counter = 0;
+
+  void loadCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _counter = (prefs.getInt('counter') ?? 0);
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     type = TypeFirstChoose.none.index;
     _getData();
+    loadCounter();
+  }
+
+  void _incrementCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _counter = ((prefs.getInt('counter') ?? 0) + 1);
+      prefs.setInt('counter', _counter);
+    });
   }
 
   void _getData() async {
@@ -70,6 +82,11 @@ class _StudyScreenState extends State<StudyScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: Icon(Icons.add),
+        ), // This trailing comma makes auto-for
         appBar: AppBar(
           title: const Text('Hướng nghiệp'),
           elevation: 0,
@@ -91,7 +108,7 @@ class _StudyScreenState extends State<StudyScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                const Text('Chọn vai trò/nhu cầu của bạn'),
+                Text('Chọn vai trò/nhu cầu của bạn + $_counter'),
                 const SizedBox(
                   height: 10,
                 ),
@@ -111,7 +128,7 @@ class _StudyScreenState extends State<StudyScreen> {
                 const SizedBox(
                   height: 50,
                 ),
-                options.categoryId != 0 || options.objectId != 0
+                options.firstId != 0
                     ? Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: _buttonWidget(),
@@ -151,7 +168,7 @@ class _StudyScreenState extends State<StudyScreen> {
             child: CircularProgressIndicator(),
           );
         } else if (state is ObjectLoaded) {
-          return _ObjectBody(state.object);
+          return _objectBody(state.object);
         }
         return const Center();
       },
@@ -178,25 +195,37 @@ class _StudyScreenState extends State<StudyScreen> {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               final _item = category.result[index];
-
+              bool check = options.listChild!.contains(_item.id) ||
+                  options.firstId == _item.id;
               return GestureDetector(
                 onTap: () {
                   type = TypeFirstChoose.iWant.index;
 
-                  options.categoryId = _item.id;
-                  options.objectIds = _item.objectIds!;
-
+                  if (options.firstId == 0) {
+                    options.firstId = _item.id;
+                    options.listChild = _item.objectIds;
+                  } else {
+                    if (options.listChild!.contains(_item.id)) {
+                      options.secondId = _item.id;
+                    } else {
+                      options.firstId = _item.id;
+                      options.listChild = _item.objectIds;
+                      options.secondId = 0;
+                    }
+                  }
                   setState(() {});
                   print(_item.title);
-                  print('ID category: ' + options.categoryId.toString());
-                  print("Current Category List Object:" +
-                      options.objectIds.toString());
-                  print('Object ID: ' + options.objectId.toString());
-                  print(type);
-                  print(index);
+                  print('First ID: ' + options.firstId.toString());
+                  print("List Child:" + options.listChild.toString());
+                  print('Second ID: ' + options.secondId.toString());
                 },
-                child: CategoryWidget(_item.icon, _item.title,
-                    color: getColorByType(_item.id)),
+                child: CategoryWidget(
+                  _item.icon,
+                  _item.title,
+                  _item.description,
+                  check,
+                  color: getColorByType1(_item.id),
+                ),
               );
             },
             separatorBuilder: (context, index) {
@@ -211,7 +240,7 @@ class _StudyScreenState extends State<StudyScreen> {
     );
   }
 
-  Widget _ObjectBody(Objects object) {
+  Widget _objectBody(Objects object) {
     return Expanded(
       child: Column(
         children: [
@@ -232,24 +261,37 @@ class _StudyScreenState extends State<StudyScreen> {
             itemCount: object.result.data!.length,
             itemBuilder: (context, index) {
               final _objectItem = object.result.data![index];
-
+              bool check = options.listChild!.contains(_objectItem.id) ||
+                  options.firstId == _objectItem.id;
               return GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onTap: () {
-                  options.objectId = _objectItem.id;
-                  options.categoryIds = _objectItem.categoryIds!;
-
                   type = TypeFirstChoose.iAm.index;
+                  if (options.firstId == 0) {
+                    options.firstId = _objectItem.id;
+                    options.listChild = _objectItem.categoryIds;
+                  } else {
+                    if (options.listChild!.contains(_objectItem.id)) {
+                      options.secondId = _objectItem.id;
+                    } else {
+                      options.firstId = _objectItem.id;
+                      options.listChild = _objectItem.categoryIds;
+                      options.secondId = 0;
+                    }
+                  }
 
                   setState(() {});
-                  print('type: ' + type.toString());
-                  print('object id: ' +
-                      options.objectId.toString() +
-                      ' category id: ' +
-                      options.categoryId.toString());
+                  print('First ID: ' + options.firstId.toString());
+                  print("List Child:" + options.listChild.toString());
+                  print('Second ID: ' + options.secondId.toString());
                 },
-                child: CategoryWidget(_objectItem.avatar, _objectItem.title,
-                    color: getColorByType(_objectItem.id)),
+                child: CategoryWidget(
+                  _objectItem.avatar,
+                  _objectItem.title,
+                  _objectItem.description,
+                  check,
+                  color: getColorByType2(_objectItem.id),
+                ),
               );
             },
             separatorBuilder: (context, index) {
@@ -263,23 +305,60 @@ class _StudyScreenState extends State<StudyScreen> {
     );
   }
 
-  Color? getColorByType(int id) {
+  Color? getColorByType1(int id) {
     if (type == TypeFirstChoose.iWant.index) {
-      if (id == options.categoryId) {
+      if (id == options.firstId) {
         return AppColors.brown2;
       }
-      if (options.objectIds.contains(id)) {
-        return AppColors.brown2;
+      if (options.listChild!.contains(id)) {
+        if (id == options.secondId) {
+          return AppColors.brown2;
+        } else {
+          return AppColors.yellow1;
+        }
       }
     }
     if (type == TypeFirstChoose.iAm.index) {
-      if (id == options.objectId) {
+      if (options.listChild!.contains(options.secondId) &&
+          id == options.firstId) {
         return AppColors.yellow1;
-      }
-      if (options.categoryIds.contains(id)) {
+      } else if (options.listChild!.contains(id) && options.secondId == 0) {
         return AppColors.yellow1;
+      } else {
+        return null;
       }
     }
+    return null;
+  }
+
+  Color? getColorByType2(int id) {
+    if (type == TypeFirstChoose.iAm.index) {
+      if (id == options.firstId) {
+        if (options.secondId == 0) {
+          return AppColors.yellow1;
+        } else {
+          return AppColors.brown2;
+        }
+      }
+      if (options.listChild!.contains(id)) {
+        if (id == options.secondId) {
+          return AppColors.yellow1;
+        } else {
+          return AppColors.brown2;
+        }
+      }
+    }
+
+    if (type == TypeFirstChoose.iWant.index) {
+      if (options.listChild!.contains(id)) {
+        return AppColors.brown2;
+      } else if (id == options.firstId) {
+        return AppColors.brown2;
+      } else {
+        return null;
+      }
+    }
+
     return null;
   }
 
@@ -291,18 +370,7 @@ class _StudyScreenState extends State<StudyScreen> {
         height: 50,
         child: ElevatedButton(
           onPressed: () {
-            type = TypeFirstChoose.none.index;
-            options.categoryId = 0;
-            options.objectId = 0;
-            options.objectIds = [];
-
-            print(options.categoryId.toString() +
-                ' ' +
-                options.objectId.toString() +
-                ' ' +
-                options.objectIds.toString());
-
-            setState(() {});
+            _incrementCounter();
           },
           style: ElevatedButton.styleFrom(
             padding: EdgeInsets.zero,
@@ -327,7 +395,7 @@ class _StudyScreenState extends State<StudyScreen> {
               height: 50,
               alignment: Alignment.center,
               child: const Text(
-                'Reset',
+                'Save',
                 style: TextStyle(fontSize: 18),
               ),
             ),

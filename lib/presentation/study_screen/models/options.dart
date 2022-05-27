@@ -1,13 +1,11 @@
 class Options {
-  int categoryId = 0;
-  List<int> objectIds = [];
-  List<int> categoryIds = [];
-  int objectId = 0;
+  int? firstId;
+  List<int>? listChild;
+  int? secondId;
 
   Options({
-    required this.categoryId,
-    required this.objectIds,
-    required this.categoryIds,
-    required this.objectId,
+    this.firstId = 0,
+    this.listChild = const <int>[],
+    this.secondId = 0,
   });
 }
