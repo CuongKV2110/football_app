@@ -8,7 +8,7 @@ part of 'category_request.dart';
 
 CategoryRequest _$CategoryRequestFromJson(Map<String, dynamic> json) =>
     CategoryRequest(
-      parentID: json['parentID'] as int,
+      parentId: json['parentId'] as int,
       block: json['block'] as int,
       code: json['code'] as String,
       getChilds: json['getChilds'] as bool,
@@ -17,7 +17,7 @@ CategoryRequest _$CategoryRequestFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CategoryRequestToJson(CategoryRequest instance) =>
     <String, dynamic>{
-      'parentID': instance.parentID,
+      'parentId': instance.parentId,
       'block': instance.block,
       'code': instance.code,
       'getChilds': instance.getChilds,

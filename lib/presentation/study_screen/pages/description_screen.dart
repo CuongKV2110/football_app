@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/colors.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class DescriptionScreen extends StatelessWidget {
   String title;
@@ -22,6 +23,10 @@ class DescriptionScreen extends StatelessWidget {
             title: Text(description),
           ),
         ),
+        /*body: const WebView(
+          initialUrl: 'https://bandon.vn/blog',
+          javascriptMode: JavascriptMode.unrestricted,
+        ),*/
       ),
     );
   }

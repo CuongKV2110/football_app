@@ -11,13 +11,11 @@ import 'domain/repositories/event_repository.dart' as _i3;
 import 'domain/repositories/study_repositories.dart' as _i8;
 import 'domain/usecases/event_usecases.dart' as _i4;
 import 'domain/usecases/study_usecases.dart' as _i9;
-import 'presentation/event_screen/bloc/event_bloc.dart' as _i12;
+import 'presentation/event_screen/bloc/event_bloc.dart' as _i11;
 import 'presentation/home_screen/bloc/home_bloc.dart' as _i5;
 import 'presentation/shop_screen/bloc/shop_bloc.dart' as _i6;
 import 'presentation/sign_in_screen/bloc/sign_in_bloc.dart' as _i7;
-import 'presentation/study_screen/bloc/category_bloc/category_bloc.dart'
-    as _i11;
-import 'presentation/study_screen/bloc/object_bloc/object_bloc.dart' as _i13;
+import 'presentation/study_screen/bloc/study_bloc/study_bloc.dart' as _i12;
 import 'presentation/watch_screen/bloc/watch_bloc.dart'
     as _i10; // ignore_for_file: unnecessary_lambdas
 
@@ -36,9 +34,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i9.StudyUseCase>(
       () => _i9.StudyUseCase(get<_i8.StudyRepository>()));
   gh.factory<_i10.WatchBloc>(() => _i10.WatchBloc());
-  gh.factory<_i11.CategoryBloc>(
-      () => _i11.CategoryBloc(get<_i9.StudyUseCase>()));
-  gh.factory<_i12.EventBloc>(() => _i12.EventBloc(get<_i4.EventUsecases>()));
-  gh.factory<_i13.ObjectBloc>(() => _i13.ObjectBloc(get<_i9.StudyUseCase>()));
+  gh.factory<_i11.EventBloc>(() => _i11.EventBloc(get<_i4.EventUsecases>()));
+  gh.factory<_i12.StudyBloc>(() => _i12.StudyBloc(get<_i9.StudyUseCase>()));
   return get;
 }

@@ -11,7 +11,7 @@ class Category {
     this.message = '',
     required this.result,
   });
-
+  @JsonKey(defaultValue: '')
   String version;
   DateTime serverTime;
   int statusCode;

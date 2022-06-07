@@ -6,14 +6,14 @@ part 'category_request.g.dart';
 
 @JsonSerializable()
 class CategoryRequest {
-  final int parentID;
+  final int parentId;
   final int block;
   final String code;
   final bool getChilds;
   final int systemObjectId;
 
   CategoryRequest({
-    required this.parentID,
+    required this.parentId,
     required this.block,
     required this.code,
     required this.getChilds,

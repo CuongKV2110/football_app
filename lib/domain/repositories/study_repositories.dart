@@ -7,6 +7,7 @@ class StudyRepository {
   final client = ApiStudy(Dio(BaseOptions(contentType: "application/json")));
 
   getDataCategory(CategoryRequest param) async {
+    print('ABC');
     return await client.getDataCategory(param);
   }
 

@@ -5,21 +5,20 @@ import 'package:ionicons/ionicons.dart';
 import 'package:music_app/data/resources/colors.dart';
 import 'package:music_app/presentation/study_screen/pages/description_screen.dart';
 
-class CategoryWidget extends StatefulWidget {
+class ItemWidget extends StatefulWidget {
   String icon;
   String title;
   String description;
   bool check;
   Color? color;
 
-  CategoryWidget(this.icon, this.title, this.description, this.check,
-      {this.color});
+  ItemWidget(this.icon, this.title, this.description, this.check, {this.color});
 
   @override
-  _CategoryWidgetState createState() => _CategoryWidgetState();
+  _ItemWidgetState createState() => _ItemWidgetState();
 }
 
-class _CategoryWidgetState extends State<CategoryWidget> {
+class _ItemWidgetState extends State<ItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -73,11 +72,12 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: () {
-                    Navigator.of(context)
-                        .push(CupertinoPageRoute(builder: (context) {
-                      return DescriptionScreen(
-                          widget.title, widget.description);
-                    }));
+                    Navigator.of(context).push(
+                      CupertinoPageRoute(builder: (context) {
+                        return DescriptionScreen(
+                            widget.title, widget.description);
+                      }),
+                    );
                   },
                   child: const CircleAvatar(
                     backgroundColor: AppColors.white,
@@ -100,6 +100,6 @@ class _CategoryWidgetState extends State<CategoryWidget> {
 
 extension StringExtension on String {
   String capitalize() {
-    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
+    return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
   }
 }
