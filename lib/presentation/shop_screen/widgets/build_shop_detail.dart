@@ -176,7 +176,7 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                           children: [
                             Text(
                               '\$' + list[index].cost.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: AppColors.orange1,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
@@ -207,7 +207,7 @@ class _BuildShopDetailState extends State<BuildShopDetail> {
                           list[index].name,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 12,
                             fontWeight: FontWeight.bold,

@@ -12,21 +12,21 @@ class Slide {
 
 final slideList = [
   Slide(
-    imgUrl: 'images/bgr1.png',
-    content: 'SHARE YOUR MOMENT WITH FRIENDS',
+    imgUrl: 'images/fb1.jpg',
+    content: 'FOOTBALL FOR EVERYONE',
     description:
-        'Lorem ipsum dolor sit amet, consectetur adipistsing alit. Lorem agestas congue sit pellentesque vel ut in',
+        'An application that provides full news, results, highlights and side information of players and teams',
   ),
   Slide(
-    imgUrl: 'images/bgr2.png',
-    content: 'SHARE YOUR MOMENT WITH FRIENDS',
+    imgUrl: 'images/fb2.jpg',
+    content: 'ACCURATE MATCH SUMMARY',
     description:
-        'Lorem ipsum dolor sit amet, consectetur adipistsing alit. Lorem agestas congue sit pellentesque vel ut in',
+        'Synthesize the fastest and most accurate results to help users easily track and grasp',
   ),
   Slide(
-    imgUrl: 'images/bgr3.png',
-    content: 'SHARE YOUR MOMENT WITH FRIENDS',
+    imgUrl: 'images/fb3.jpg',
+    content: 'TRANSFER NEWS AND PLAYERS STATUS',
     description:
-        'Lorem ipsum dolor sit amet, consectetur adipistsing alit. Lorem agestas congue sit pellentesque vel ut in',
+        'Players personal stories, status lines and shopping systems for clubs around the world',
   ),
 ];

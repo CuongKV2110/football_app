@@ -41,6 +41,30 @@ class ShopBloc extends Cubit<ShopState> {
       isTym: false,
       isSave: false,
     ),
+    Shop(
+      img1:
+          'https://danviet.mediacdn.vn/thumb_w/650/296231569849192448/2022/1/2/messi-01-16411338742681563076274.jpg',
+      img2:
+          'https://photo-cms-sggp.zadn.vn/Uploaded/2022/dqmbbcvo/2022_06_06/lionelmessi1_wpcl.jpg',
+      img3:
+          'https://img.nhandan.com.vn/Files/Images/2021/07/10/a1-1625891353039.jpg',
+      content:
+          'Lionel Andrés Messi born 24 June 1987, also known as Leo Messi, is an Argentine professional footballer who plays as a forward for Ligue 1 club Paris Saint-Germain and captains the Argentina national team',
+      isTym: false,
+      isSave: false,
+    ),
+    Shop(
+      img1:
+          'https://cdn.vovlive.vn/2022/07/17/image.vtc.vn-upload-2022-07-17-_b5c14d3e-fabe-4edc-883f-bdf2d0877fb5alta-libre-aspect-ratiodefault0-06394597.jpeg',
+      img2:
+          'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltf2dfa4c811059291/626501119dbd354aa8fc4295/Lewandowski.jpg?auto=webp&format=jpg&quality=60&width=1280',
+      img3:
+          'https://photo-cms-plo.zadn.vn/w850/Uploaded/2022/kwvobciv/2022_06_16/lewan-bayern-2-6042.jpg',
+      content:
+          'Robert Lewandowski born 21 August 1988 is a Polish professional footballer who plays as a striker for Bundesliga club Bayern Munich and is the captain of the Poland national team',
+      isTym: false,
+      isSave: false,
+    ),
   ];
 
   Future<void> getData() async {

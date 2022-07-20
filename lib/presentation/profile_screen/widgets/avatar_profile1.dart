@@ -11,7 +11,7 @@ class AvatarProfile1 extends StatelessWidget {
       child: const Padding(
         padding: EdgeInsets.all(3),
         child: CircleAvatar(
-          radius: 50,
+          radius: 60,
           backgroundImage: AssetImage('images/avt.jpg'),
         ),
       ),

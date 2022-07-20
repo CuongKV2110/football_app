@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app/data/models/shop.dart';
 import 'package:music_app/presentation/shop_screen/bloc/shop_bloc.dart';
 import 'package:music_app/presentation/shop_screen/bloc/shop_state.dart';
 
@@ -23,6 +24,7 @@ class _BuildShopState extends State<BuildShop> {
   @override
   void initState() {
     bloc.getData();
+    super.initState();
   }
 
   @override
@@ -31,12 +33,12 @@ class _BuildShopState extends State<BuildShop> {
       create: (context) => bloc,
       child: BlocBuilder<ShopBloc, ShopState>(builder: (context, state) {
         if (state is ShopLoading) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (state is ShopLoaded) {
           return ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               itemCount: bloc.list.length,
               itemBuilder: (context, index) {
@@ -64,7 +66,7 @@ class _BuildShopState extends State<BuildShop> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              _buildHeader(index),
+                              _buildHeader(bloc.list[index], index),
                               const SizedBox(height: 10),
                               _buildImage(index),
                               const SizedBox(height: 10),
@@ -83,19 +85,19 @@ class _BuildShopState extends State<BuildShop> {
                 );
               });
         } else if (state is ShopError) {
-          return Center(
+          return const Center(
             child: Text('Loi'),
           );
         }
-        return Center();
+        return const Center();
       }),
     );
   }
 
-  Widget _buildHeader(int index) {
+  Widget _buildHeader(Shop shop, int index) {
     return Row(
       children: [
-        InfoWidget(index),
+        InfoWidget(index, shop.img1),
         const Spacer(),
         const ButtonWidget(),
       ],

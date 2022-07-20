@@ -13,7 +13,7 @@ class BuildHomeBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Hi, Nik Clous',
+            'Hi, Kieu Cuong',
             style: TextStyle(
               color: AppColors.white,
               fontSize: 18,
@@ -43,7 +43,7 @@ class BuildHomeBar extends StatelessWidget {
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(color: AppColors.white),
                     ),
-                    hintText: 'Search for an event',
+                    hintText: 'Search for match',
                     hintStyle: TextStyle(
                       color: AppColors.gray,
                       fontSize: 15,

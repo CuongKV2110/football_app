@@ -11,8 +11,8 @@ class BuildImageWidget1 extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 54),
       child: Container(
-        width: AppDimensions.d55w,
-        height: AppDimensions.d40h,
+        width: AppDimensions.d70w,
+        height: AppDimensions.d45h,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             begin: Alignment.topCenter,
@@ -25,9 +25,12 @@ class BuildImageWidget1 extends StatelessWidget {
           color: AppColors.white,
           borderRadius: BorderRadius.circular(32),
         ),
-        child: Image.asset(
-          'images/bgr1.png',
-          fit: BoxFit.contain,
+        child: ClipRRect(
+          child: Image.asset(
+            'images/fb6.jpg',
+            fit: BoxFit.fill,
+          ),
+          borderRadius: BorderRadius.circular(30),
         ),
       ),
     );

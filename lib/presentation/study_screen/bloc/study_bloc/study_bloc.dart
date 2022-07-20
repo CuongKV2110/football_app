@@ -48,6 +48,7 @@ class StudyBloc extends Cubit<StudyState> {
 
     if (resObject != 0) {
       Study study = Study(resCategory, resObject);
+      print(study.category.result[0].objectIds);
 
       var objectData = study.objects.result.data;
       var categoryData = study.category.result;
@@ -62,16 +63,17 @@ class StudyBloc extends Cubit<StudyState> {
         }
         study.objects.result.data![i].categoryIds = _cateID;
       }
+      print('Success');
       emit(StudyLoaded(study));
       return study;
     } else {
+      print('Error');
       emit(StudyError());
       return study1;
     }
   }
 
-  Future<void> setCategory(
-      Study study, Choose choose, CategoryResult category) async {
+  void setCategory(Study study, Choose choose, CategoryResult category) async {
     choose.type = TypeFirstChoose.iWant.index;
     if (choose.firstId == 0) {
       choose.firstId = category.id;
@@ -85,6 +87,7 @@ class StudyBloc extends Cubit<StudyState> {
         choose.secondId = 0;
       }
     }
+    print('Emit Loaded');
     emit(StudyLoaded(study));
   }
 
@@ -102,6 +105,7 @@ class StudyBloc extends Cubit<StudyState> {
         choose.secondId = 0;
       }
     }
+    print('Emit Loaded');
     emit(StudyLoaded(study));
   }
 }

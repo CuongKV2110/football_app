@@ -16,22 +16,25 @@ class _BuildHomeScreenState extends State<BuildHomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: ListView(
-            physics: const BouncingScrollPhysics(),
-            children: const [
-              BuildHomeBar(),
-              SizedBox(
-                height: 20,
-              ),
-              BuildHomeBody(),
-            ],
-          )),
+        backgroundColor: Colors.transparent,
+        body: ListView(
+          physics: const BouncingScrollPhysics(),
+          children: const [
+            BuildHomeBar(),
+            SizedBox(
+              height: 20,
+            ),
+            BuildHomeBody(),
+          ],
+        ),
+      ),
     );
   }
 }

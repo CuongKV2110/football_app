@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
             colors: [
-              AppColors.black1,
+              AppColors.black2,
               AppColors.black2,
             ],
           ),
@@ -52,6 +52,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () => Scaffold.of(context).openDrawer(),
               ),
             ),
+            title: Text(
+              _currentIndex == 0
+                  ? 'Football App'
+                  : (_currentIndex == 1
+                      ? 'Match Event'
+                      : (_currentIndex == 2
+                          ? 'Match Highlights'
+                          : 'Player News')),
+              style: const TextStyle(
+                color: AppColors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            centerTitle: true,
             actions: [
               GestureDetector(
                 onTap: () {
@@ -91,8 +105,8 @@ class _HomeScreenState extends State<HomeScreen> {
             controller: _controller,
             children: const [
               BuildHomeScreen(),
-              EventScreen(),
               WatchScreen(),
+              EventScreen(),
               ShopScreen(),
             ],
           ),
@@ -138,15 +152,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Ionicons.radio_outline,
+            Ionicons.tv_outline,
           ),
-          label: 'Watch',
+          label: 'Highlights',
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Ionicons.bag_outline,
+            Ionicons.radio_outline,
           ),
-          label: 'Shop',
+          label: 'News',
         ),
       ],
     );

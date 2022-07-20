@@ -58,6 +58,14 @@ flutter:
     - images/google.png
     - images/music.png
     - images/avt.jpg
+    - images/fb7.png
+    - images/fb1.jpg
+    - images/fb2.jpg
+    - images/fb3.jpg
+    - images/fb4.jpg
+    - images/fb5.jpg
+    - images/fb6.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

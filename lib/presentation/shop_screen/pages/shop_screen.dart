@@ -17,6 +17,7 @@ class _ShopScreenState extends State<ShopScreen>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());

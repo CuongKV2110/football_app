@@ -10,7 +10,7 @@ part of 'api_study.dart';
 
 class _ApiStudy implements ApiStudy {
   _ApiStudy(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://117.4.243.193:8083/api/common-data/';
+    baseUrl ??= 'http://117.4.243.193:8084/api/guide/';
   }
 
   final Dio _dio;

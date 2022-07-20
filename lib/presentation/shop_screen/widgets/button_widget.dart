@@ -36,7 +36,7 @@ class ButtonWidget extends StatelessWidget {
             height: 24,
             alignment: Alignment.center,
             child: const Text(
-              'Buy now',
+              'Follow',
               style: TextStyle(fontSize: 11),
             ),
           ),

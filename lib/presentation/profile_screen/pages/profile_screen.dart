@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
             colors: [
-              AppColors.black1,
+              AppColors.black2,
               AppColors.black2,
             ],
           ),
@@ -28,19 +28,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                BuildProfile(),
+                const BuildProfile(),
                 const SizedBox(
                   height: 20,
                 ),
                 BuildContent('Stories'),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 BuildContent('Trending'),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 BuildContent('Recent'),

@@ -12,7 +12,14 @@ import '../../../injection.dart';
 import '../bloc/study_bloc/study_bloc.dart';
 import '../models/choose.dart';
 
-class StudyScreen extends StatelessWidget {
+class StudyScreen extends StatefulWidget {
+  const StudyScreen({Key? key}) : super(key: key);
+
+  @override
+  _StudyScreenState createState() => _StudyScreenState();
+}
+
+class _StudyScreenState extends State<StudyScreen> {
   StudyBloc studybloc = getIt();
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   Choose choose = Choose(0, 0, 0, []);
@@ -46,28 +53,53 @@ class StudyScreen extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    studybloc.getDataStudy();
+    check();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Hướng nghiệp'),
+          title: const Text('Hướng nghiệp BND'),
           elevation: 0,
         ),
         body: BlocProvider<StudyBloc>(
-          create: (context) => studybloc..getDataStudy(),
-          child: BlocBuilder<StudyBloc, StudyState>(
-            builder: (context, state) {
-              if (state is StudyLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state is StudyLoaded) {
-                return _buildBody(state.study);
-              }
-              return const Center(
-                child: Text('Loi'),
-              );
-            },
+          create: (context) => studybloc,
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text('Chọn vai trò/nhu cầu của bạn'),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  child: BlocBuilder<StudyBloc, StudyState>(
+                    builder: (context, state) {
+                      if (state is StudyLoading) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else if (state is StudyLoaded) {
+                        return _buildBody(state.study);
+                      }
+                      return const Center(
+                        child: Text('Loi'),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -75,45 +107,31 @@ class StudyScreen extends StatelessWidget {
   }
 
   Widget _buildBody(Study study) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 10,
-          ),
-          const Text('Chọn vai trò/nhu cầu của bạn'),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildCategory(study),
-                const SizedBox(
-                  width: 24,
-                ),
-                _buildObject(study),
-              ],
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildCategory(study),
+            const SizedBox(
+              width: 24,
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          choose.firstId != 0
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: _buttonWidget(),
-                )
-              : const SizedBox(),
-          const SizedBox(
-            height: 20,
-          ),
-        ],
-      ),
+            _buildObject(study),
+          ],
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        choose.firstId != 0
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: _buttonWidget(),
+              )
+            : const SizedBox(),
+        const SizedBox(
+          height: 20,
+        ),
+      ],
     );
   }
 
@@ -141,7 +159,6 @@ class StudyScreen extends StatelessWidget {
                   choose.firstId == _categoryItem.id;
               return GestureDetector(
                 onTap: () {
-                  print("A");
                   studybloc.setCategory(study, choose, _categoryItem);
                 },
                 child: ItemWidget(

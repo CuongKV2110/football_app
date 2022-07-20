@@ -1,16 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_app/data/resources/dimensions.dart';
 import 'package:music_app/presentation/home_screen/bloc/home_bloc.dart';
 import 'package:music_app/presentation/home_screen/widgets/build_options.dart';
 import 'package:music_app/presentation/home_screen/widgets/build_text_content.dart';
 import 'package:music_app/presentation/home_screen/widgets/catch_up_widget.dart';
 import 'package:music_app/presentation/home_screen/widgets/category_widget.dart';
 import 'package:music_app/presentation/home_screen/widgets/top_pick_widget.dart';
-import 'package:music_app/presentation/live_screen/pages/live_screen.dart';
-
 import '../bloc/home_state.dart';
 
 class BuildHomeBody extends StatefulWidget {
@@ -26,6 +21,7 @@ class _BuildHomeBodyState extends State<BuildHomeBody> {
   @override
   void initState() {
     bloc.getData();
+    super.initState();
   }
 
   @override
@@ -34,15 +30,15 @@ class _BuildHomeBodyState extends State<BuildHomeBody> {
       create: (context) => bloc,
       child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
         if (state is HomeLoading) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (state is HomeLoaded) {
           return Column(
             children: [
               BuildOptions(bloc.imageList1, bloc.imageList2, bloc.imageList3),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              BuildTextContent('Catch'),
+              BuildTextContent('Highlights'),
               const SizedBox(
                 height: 16,
               ),
@@ -50,7 +46,7 @@ class _BuildHomeBodyState extends State<BuildHomeBody> {
               const SizedBox(
                 height: 36,
               ),
-              BuildTextContent('Top'),
+              BuildTextContent('Super Match'),
               const SizedBox(
                 height: 16,
               ),
@@ -58,7 +54,7 @@ class _BuildHomeBodyState extends State<BuildHomeBody> {
               const SizedBox(
                 height: 36,
               ),
-              BuildTextContent('Category'),
+              BuildTextContent('Stadium'),
               const SizedBox(
                 height: 16,
               ),
@@ -66,9 +62,9 @@ class _BuildHomeBodyState extends State<BuildHomeBody> {
             ],
           );
         } else if (state is HomeError) {
-          return Text('Loi');
+          return const Text('Loi');
         }
-        return Center();
+        return const Center();
       }),
     );
   }

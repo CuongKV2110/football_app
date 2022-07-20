@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app/data/resources/colors.dart';
-import 'package:music_app/injection.dart';
 import 'package:music_app/presentation/home_screen/pages/home_screen.dart';
 import 'package:music_app/presentation/login_screen/widgets/build_media_widget.dart';
 import 'package:music_app/presentation/sign_in_screen/bloc/sign_in_bloc.dart';
@@ -76,15 +75,15 @@ class _SignInScreenState extends State<SignInScreen> {
         children: [
           BuildImageWidget2(),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           _buildSignInForm(),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           const BuildMediaWidget(),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           const SignUpWidget(),
         ],
@@ -127,12 +126,12 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
           ),
           const SizedBox(
-            height: 26,
+            height: 30,
           ),
           TextField(
             controller: passwordController,
             style: const TextStyle(color: AppColors.white),
-            obscureText: true,
+            /* obscureText: true,*/
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Pass word',
@@ -159,7 +158,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
           ),
           const SizedBox(
-            height: 26,
+            height: 30,
           ),
           Container(
             height: 56,

@@ -191,64 +191,6 @@ class _BuildHomeDetailState extends State<BuildHomeDetail>
                             )
                           ],
                         ),
-                        /*Positioned(
-                          bottom: 0,
-                          child: isExpanded
-                              ? const SizedBox()
-                              : Column(
-                                  children: [
-                                    Container(
-                                      child: ClipRRect(
-                                        child: CachedNetworkImage(
-                                          imageUrl:
-                                              'https://www.google.com/maps/d/thumbnail?mid=118mI_eAQvlFruldjAAmVT2aw0f8&hl=en',
-                                          fit: BoxFit.fill,
-                                        ),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      width: AppDimensions.d80w,
-                                      height: AppDimensions.d80w,
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    ElevatedButton(
-                                      onPressed: () {},
-                                      style: ElevatedButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(28),
-                                        ),
-                                      ),
-                                      child: Ink(
-                                        decoration: BoxDecoration(
-                                          gradient: const LinearGradient(
-                                            begin: Alignment.topCenter,
-                                            end: Alignment.bottomCenter,
-                                            colors: [
-                                              AppColors.orange1,
-                                              AppColors.orange2,
-                                            ],
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(28),
-                                        ),
-                                        child: Container(
-                                          width: AppDimensions.d60w,
-                                          height: 56,
-                                          alignment: Alignment.center,
-                                          child: const Text(
-                                            'Buy Now',
-                                            style:
-                                                const TextStyle(fontSize: 18),
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                        )*/
                       ],
                     ),
                   ),

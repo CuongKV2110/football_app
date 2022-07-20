@@ -20,8 +20,7 @@ class TopPickWidget extends StatelessWidget {
           itemCount: imagesList.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsets.fromLTRB(index == 0 ? 16 : 0, 0,
-                  index == imagesList.length - 1 ? 0 : 16, 0),
+              padding: EdgeInsets.fromLTRB(index == 0 ? 16 : 0, 0, 16, 0),
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(

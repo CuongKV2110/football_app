@@ -81,8 +81,8 @@ class _WatchContentState extends State<WatchContent> {
                   itemCount: bloc.list.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.fromLTRB(index == 0 ? 18 : 0, 0,
-                          index == bloc.list.length - 1 ? 0 : 20, 0),
+                      padding:
+                          EdgeInsets.fromLTRB(index == 0 ? 18 : 0, 0, 20, 0),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(

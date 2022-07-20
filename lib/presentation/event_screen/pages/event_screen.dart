@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/presentation/event_screen/widgets/event_widget.dart';
 
-import '../../../injection.dart';
-import '../bloc/event_bloc.dart';
-
 class EventScreen extends StatefulWidget {
   const EventScreen({Key? key}) : super(key: key);
-
   @override
   _EventScreen createState() => _EventScreen();
 }

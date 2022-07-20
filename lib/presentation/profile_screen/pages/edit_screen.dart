@@ -26,8 +26,8 @@ class _EditScreenState extends State<EditScreen> {
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               colors: [
-                AppColors.black1,
-                AppColors.black4,
+                AppColors.black2,
+                AppColors.black2,
               ],
             ),
           ),
@@ -37,7 +37,7 @@ class _EditScreenState extends State<EditScreen> {
               backgroundColor: Colors.transparent,
               elevation: 0,
               title: const Text(
-                'Profile',
+                'Change Profile Information',
                 style: TextStyle(color: AppColors.white, fontSize: 18),
               ),
             ),
@@ -47,14 +47,14 @@ class _EditScreenState extends State<EditScreen> {
                 children: const [
                   AvatarProfile1(),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 24),
                     child: SignUpForm(),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   BuildChangeButton()
                 ],

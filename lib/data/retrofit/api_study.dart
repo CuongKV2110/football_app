@@ -8,7 +8,7 @@ import '../../presentation/study_screen/models/object_request.dart';
 import 'apis.dart';
 part 'api_study.g.dart';
 
-@RestApi(baseUrl: "http://117.4.243.193:8083/api/common-data/")
+@RestApi(baseUrl: "http://117.4.243.193:8084/api/guide/")
 abstract class ApiStudy {
   factory ApiStudy(Dio dio, {String baseUrl}) = _ApiStudy;
 

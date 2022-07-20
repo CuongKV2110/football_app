@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:music_app/injection.dart';
-import 'package:music_app/presentation/study_screen/pages/study_screen.dart';
+import 'package:music_app/presentation/home_screen/pages/home_screen.dart';
+import 'package:music_app/presentation/splash_screen/pages/splash_screen.dart';
 import 'package:sizer/sizer.dart';
 
 import 'data/resources/colors.dart';
@@ -21,8 +22,8 @@ class MyApp extends StatelessWidget {
           color: AppColors.white,
           debugShowCheckedModeBanner: false,
           theme: ThemeData.light(),
-          home: SafeArea(
-            child: StudyScreen(),
+          home: const SafeArea(
+            child: SplashScreen(),
           ),
           locale: const Locale('en'),
           localizationsDelegates: const [

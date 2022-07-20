@@ -35,7 +35,7 @@ class BuildContent extends StatelessWidget {
   final List<String> imagesList3 = [
     'https://i0.wp.com/onedayitinerary.com/wp-content/uploads/2019/02/One-day-in-Shanghai-Itinerary.jpg?fit=800%2C600&ssl=1',
     'https://www.vietnambooking.com/wp-content/uploads/2018/11/dulich-nuoc-uc-6n5d-kham-pha-thanh-pho-sydney-melbourne-20112018-8.jpg',
-    'https://i.ytimg.com/vi/Su9703XC5r4/maxresdefault.jpg',
+    'https://i.ytimg.com/vi/9XmPEUIghSM/maxresdefault.jpg',
     'https://ruche.vn/storage/tin-tuc/mua-thu-han-quoc/3-diem-den/seoul.jpg',
     'https://booksandbao.com/wp-content/uploads/2019/02/jezael-melgoza-974061-unsplash-e1567602273865.jpg',
     'https://lp-cms-production.imgix.net/2021-02/shutterstockRF_1347219839.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850',
@@ -93,8 +93,7 @@ class BuildContent extends StatelessWidget {
                         ? imagesList2.length
                         : imagesList3.length);
                 return Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      index == 0 ? 18 : 0, 0, index == lenght - 1 ? 0 : 10, 0),
+                  padding: EdgeInsets.fromLTRB(index == 0 ? 18 : 0, 0, 20, 0),
                   child: Stack(
                     children: [
                       ClipRRect(

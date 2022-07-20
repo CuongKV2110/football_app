@@ -38,7 +38,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 30,
         ),
         TextField(
           style: TextStyle(color: AppColors.white),
@@ -64,7 +64,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 30,
         ),
         TextField(
           style: TextStyle(color: AppColors.white),
@@ -91,7 +91,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
         ),
         const SizedBox(
-          height: 20,
+          height: 30,
         ),
         TextField(
           style: TextStyle(color: AppColors.white),

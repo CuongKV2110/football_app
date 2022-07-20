@@ -22,8 +22,7 @@ class CategoryWidget extends StatelessWidget {
           itemCount: imagesList.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsets.fromLTRB(index == 0 ? 16 : 0, 0,
-                  index == imagesList.length - 1 ? 0 : 16, 0),
+              padding: EdgeInsets.fromLTRB(index == 0 ? 16 : 0, 0, 16, 0),
               child: Stack(
                 children: [
                   GestureDetector(
@@ -46,20 +45,6 @@ class CategoryWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  Positioned(
-                    bottom: 20,
-                    left: 7,
-                    child: Text(
-                      index == 0
-                          ? "Sports"
-                          : (index % 2 == 0 ? 'Travel' : 'Technology'),
-                      style: const TextStyle(
-                        color: AppColors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  )
                 ],
               ),
             );

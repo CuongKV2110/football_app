@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/data/resources/dimensions.dart';
 import 'package:music_app/presentation/login_screen/pages/login_screen.dart';
@@ -43,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
             colors: [
-              AppColors.black1,
+              AppColors.black2,
               AppColors.black2,
             ],
           ),
@@ -114,9 +115,12 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Container(
             width: AppDimensions.d65w,
             height: AppDimensions.d45h,
-            child: Image.asset(
-              slideList[index].imgUrl,
-              fit: BoxFit.contain,
+            child: ClipRRect(
+              child: Image.asset(
+                slideList[index].imgUrl,
+                fit: BoxFit.fill,
+              ),
+              borderRadius: BorderRadius.circular(30),
             ),
             decoration: BoxDecoration(
               gradient: const LinearGradient(
@@ -184,7 +188,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) {
-                          return LoginScreen();
+                          return const LoginScreen();
                         },
                       ),
                     );

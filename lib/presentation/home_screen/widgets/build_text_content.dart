@@ -15,9 +15,9 @@ class BuildTextContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            content == 'Catch'
-                ? 'Catch Up'
-                : (content == 'Top' ? 'Top Picks ' : 'Browers By Category'),
+            content == 'Highlights'
+                ? 'Highlights'
+                : (content == 'Super Match' ? 'Super Match ' : 'Stadium'),
             style: const TextStyle(
               color: AppColors.white,
               fontSize: 24,

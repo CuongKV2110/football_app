@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:music_app/data/resources/colors.dart';
 import 'package:music_app/data/resources/dimensions.dart';
 import 'package:music_app/presentation/live_screen/widgets/comment_box_widget.dart';
@@ -17,7 +16,7 @@ class LiveScreen extends StatefulWidget {
 }
 
 class _LiveScreenState extends State<LiveScreen> {
-  @override
+  /*@override
   void initState() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.bottom]);
@@ -30,7 +29,7 @@ class _LiveScreenState extends State<LiveScreen> {
         overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.dispose();
   }
-
+*/
   @override
   Widget build(BuildContext context) {
     return SafeArea(

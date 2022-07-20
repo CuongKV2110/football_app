@@ -22,8 +22,7 @@ class CatchUpWidget extends StatelessWidget {
           itemCount: 5,
           itemBuilder: (context, index) {
             return Padding(
-              padding: EdgeInsets.fromLTRB(index == 0 ? 16 : 0, 0,
-                  index == imagesList.length - 1 ? 0 : 16, 0),
+              padding: EdgeInsets.fromLTRB(index == 0 ? 16 : 0, 0, 16, 0),
               child: Stack(
                 children: [
                   GestureDetector(

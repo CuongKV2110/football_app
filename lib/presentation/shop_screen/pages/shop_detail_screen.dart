@@ -84,8 +84,6 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
     ),
   ];
 
-  //Khai bao them list ow day
-
   void _runSearch(String text) {
     List<ShopDetail> _results = [];
     if (text.isEmpty) {
@@ -129,6 +127,8 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
           child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
+              title: Text('Football Shop'),
+              centerTitle: true,
               backgroundColor: Colors.transparent,
               elevation: 0,
               leading: GestureDetector(
@@ -151,10 +151,10 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
                 ),
               ],
             ),
-            body: Container(
+            body: SizedBox(
               height: double.infinity,
               child: Padding(
-                  padding: EdgeInsets.fromLTRB(19, 0, 29, 0),
+                  padding: const EdgeInsets.fromLTRB(19, 0, 29, 0),
                   child: Column(
                     children: [
                       TextField(
@@ -163,8 +163,21 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
                           _runSearch(_searchController.text);
                         },
                         decoration: const InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.white),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.white),
+                            ),
+                            border: UnderlineInputBorder(
+                              borderSide: BorderSide(color: AppColors.white),
+                            ),
                             labelText: 'Search',
-                            suffixIcon: Icon(Icons.search)),
+                            labelStyle: TextStyle(color: AppColors.white),
+                            suffixIcon: Icon(
+                              Icons.search,
+                              color: AppColors.white,
+                            )),
                       ),
                       const SizedBox(
                         height: 20,
@@ -172,6 +185,7 @@ class _ShopDetailScreenState extends State<ShopDetailScreen> {
                       Expanded(
                         child: _foundList.isNotEmpty
                             ? GridView.builder(
+                                physics: const BouncingScrollPhysics(),
                                 gridDelegate:
                                     const SliverGridDelegateWithMaxCrossAxisExtent(
                                         maxCrossAxisExtent: 200,

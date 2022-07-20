@@ -1,7 +1,7 @@
 import '../../../data/models/animal.dart';
 
 abstract class EventState {
-  final List<Animal> data;
+  final List<String> data;
   EventState({required this.data});
 }
 
@@ -14,8 +14,7 @@ class EventLoading extends EventState {
 }
 
 class EventLoaded extends EventState {
-  final List<Animal> data;
-  EventLoaded({required this.data}) : super(data: data);
+  EventLoaded({required List<String> data}) : super(data: data);
 }
 
 class EventError extends EventState {

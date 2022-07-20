@@ -32,6 +32,7 @@ class _EventWidgetState extends State<EventWidget> {
   void dispose() {
     _controller.removeListener(handleScrolling);
     _eventBloc.dispose();
+    super.dispose();
   }
 
   void handleScrolling() async {
@@ -44,13 +45,11 @@ class _EventWidgetState extends State<EventWidget> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
-        await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 2));
         _eventBloc.refreshData();
       },
       child: BlocProvider<EventBloc>(
-        create: (context) => _eventBloc
-          ..initial('nokia')
-          ..getData(),
+        create: (context) => _eventBloc..getData(),
         child: BlocBuilder<EventBloc, EventState>(
           builder: (context, state) {
             if (state is EventLoading) {
@@ -66,26 +65,18 @@ class _EventWidgetState extends State<EventWidget> {
     );
   }
 
-  Widget _buildList(List<Animal> data, BuildContext context) {
+  Widget _buildList(List<String> data, BuildContext context) {
     return ListView.separated(
+      physics: const BouncingScrollPhysics(),
       controller: _controller,
       itemCount: data.length,
       padding: const EdgeInsets.only(bottom: 50),
       itemBuilder: (_, index) {
-        final item = data[index];
         return Column(
           children: [
             GestureDetector(
-              onTap: () {
-                /*Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return HomeDetailScreen(data[index]);
-                    },
-                  ),
-                );*/
-              },
-              child: _buildItem(item),
+              onTap: () {},
+              child: _buildItem(data[index]),
             ),
             if (index == data.length - 1) const CircularProgressIndicator()
           ],
@@ -95,141 +86,20 @@ class _EventWidgetState extends State<EventWidget> {
     );
   }
 
-  Widget _buildItem(Animal item) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: <Widget>[
-        ClipRRect(
-          child: CachedNetworkImage(
-            imageUrl: item.image,
-            width: AppDimensions.d90w,
-            height: AppDimensions.d40h,
-            fit: BoxFit.fill,
-          ),
-          borderRadius: BorderRadius.circular(24),
-        ),
-        Positioned(
-          top: 16,
-          right: 16,
-          child: Container(
-            width: 100,
-            height: 66,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: AppColors.white,
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(4),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    item.category.toString(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.black1,
-                      fontSize: 24,
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      item.label,
-                      style: TextStyle(
-                        color: AppColors.black1,
-                        fontSize: 24,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          child: Container(
-            width: AppDimensions.d100w,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(24, 10, 34, 10),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    item.name,
-                    style: TextStyle(
-                      color: AppColors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    'Speed: ' + item.speed,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: AppColors.white,
-                      fontSize: 14,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Expanded(
-                      child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Longevity: ' + item.longevity,
-                        style: TextStyle(
-                          color: AppColors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        item.description,
-                        style: TextStyle(
-                          color: AppColors.white,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        maxLines: 2,
-                      )
-                    ],
-                  )
-                      /*child: BuildUser(),*/
-                      ),
-                ],
-              ),
-            ),
-            height: AppDimensions.d38w,
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    AppColors.black1,
-                    AppColors.black3.withOpacity(0.8),
-                    AppColors.black3.withOpacity(0.6),
-                  ]),
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(24),
-                bottomLeft: Radius.circular(24),
-              ),
-            ),
-          ),
-        )
-      ],
+  Widget _buildItem(String imgUrl) {
+    return ClipRRect(
+      child: CachedNetworkImage(
+        imageUrl: imgUrl,
+        width: AppDimensions.d90w,
+        height: AppDimensions.d40h,
+        fit: BoxFit.fill,
+      ),
+      borderRadius: BorderRadius.circular(24),
     );
   }
 
   Widget _buildShimmer() {
-    return Container(
+    return SizedBox(
       width: AppDimensions.d100w,
       height: AppDimensions.d100h,
       child: Shimmer.fromColors(

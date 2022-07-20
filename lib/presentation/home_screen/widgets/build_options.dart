@@ -29,15 +29,15 @@ class _BuildOptionsState extends State<BuildOptions> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildOptions(0, 'New Event', widget.imageList1),
+            _buildOptions(0, 'Highlights', widget.imageList1),
             const SizedBox(
               width: 20,
             ),
-            _buildOptions(1, 'Hot', widget.imageList2),
+            _buildOptions(1, 'Super Match', widget.imageList2),
             const SizedBox(
               width: 20,
             ),
-            _buildOptions(2, 'Upcoming', widget.imageList3),
+            _buildOptions(2, 'Stadium', widget.imageList3),
           ],
         ),
         _buildSlider(

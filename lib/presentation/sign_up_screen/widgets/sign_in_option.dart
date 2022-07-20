@@ -9,6 +9,7 @@ class SignInOption extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
             'Already have an account ! ',

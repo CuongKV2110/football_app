@@ -1,7 +1,6 @@
 import 'package:injectable/injectable.dart';
 
 import '../../data/models/animal.dart';
-import '../../data/models/event_model.dart';
 import '../repositories/event_repository.dart';
 
 @injectable
