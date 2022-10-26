@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../../../data/resources/colors.dart';
 
 class CommentDetail extends StatelessWidget {
+  const CommentDetail({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +23,7 @@ class CommentDetail extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Jurgen Kloop',
                 style: TextStyle(
                   color: AppColors.gray,
@@ -29,10 +31,10 @@ class CommentDetail extends StatelessWidget {
                   letterSpacing: 0.8,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 4,
               ),
-              Text(
+              const Text(
                 'Liverpool will winner in C1 2022',
                 style: TextStyle(
                   color: AppColors.white,
@@ -40,11 +42,11 @@ class CommentDetail extends StatelessWidget {
                   letterSpacing: 0.4,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 6,
               ),
               Row(
-                children: [
+                children: const [
                   Text(
                     '5 hours ago',
                     style: TextStyle(
@@ -56,7 +58,7 @@ class CommentDetail extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    'Replie',
+                    'Replied',
                     style: TextStyle(
                       color: AppColors.white,
                       fontSize: 10,

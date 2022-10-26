@@ -1,9 +1,9 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:music_app/data/models/menu_item.dart';
 import 'package:music_app/presentation/login_screen/pages/login_screen.dart';
 
-import '../../../data/models/menu_item.dart';
 import '../../../data/resources/colors.dart';
 
 class BuildDrawer extends StatefulWidget {
@@ -14,37 +14,37 @@ class BuildDrawer extends StatefulWidget {
 }
 
 class _BuildDrawerState extends State<BuildDrawer> {
-  List<MenuItem> list = [];
+  List<MenuItemWidget> list = [];
 
   @override
   void initState() {
     list.add(
-      MenuItem(
+      MenuItemWidget(
           icon: Ionicons.person_outline, name: 'Follow and invite friends'),
     );
     list.add(
-      MenuItem(icon: Ionicons.stats_chart_outline, name: 'Your activity'),
+      MenuItemWidget(icon: Ionicons.stats_chart_outline, name: 'Your activity'),
     );
     list.add(
-      MenuItem(icon: Ionicons.notifications_outline, name: 'Notificaton'),
+      MenuItemWidget(icon: Ionicons.notifications_outline, name: 'Notificaton'),
     );
     list.add(
-      MenuItem(icon: Ionicons.color_wand_outline, name: 'Creater'),
+      MenuItemWidget(icon: Ionicons.color_wand_outline, name: 'Creater'),
     );
     list.add(
-      MenuItem(icon: Ionicons.hand_left_outline, name: 'Privacy'),
+      MenuItemWidget(icon: Ionicons.hand_left_outline, name: 'Privacy'),
     );
     list.add(
-      MenuItem(icon: Ionicons.shield_half_outline, name: 'Secutiry'),
+      MenuItemWidget(icon: Ionicons.shield_half_outline, name: 'Secutiry'),
     );
     list.add(
-      MenuItem(icon: Ionicons.person_circle_outline, name: 'Account'),
+      MenuItemWidget(icon: Ionicons.person_circle_outline, name: 'Account'),
     );
     list.add(
-      MenuItem(icon: Ionicons.help_circle_outline, name: 'Help'),
+      MenuItemWidget(icon: Ionicons.help_circle_outline, name: 'Help'),
     );
     list.add(
-      MenuItem(icon: Ionicons.information_circle_outline, name: 'About'),
+      MenuItemWidget(icon: Ionicons.information_circle_outline, name: 'About'),
     );
   }
 

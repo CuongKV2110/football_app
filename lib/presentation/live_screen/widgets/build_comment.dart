@@ -116,7 +116,7 @@ class _BuildCommentState extends State<BuildComment> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
           Padding(
@@ -177,7 +177,7 @@ class _BuildCommentState extends State<BuildComment> {
                             children: [
                               Text(
                                 listComment[index].name,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: AppColors.gray,
                                   fontSize: 12,
                                   letterSpacing: 0.8,
@@ -203,16 +203,16 @@ class _BuildCommentState extends State<BuildComment> {
                                 children: [
                                   Text(
                                     listComment[index].time,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: AppColors.white,
                                       fontSize: 12,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
-                                  Text(
-                                    'Replie',
+                                  const Text(
+                                    'Replied',
                                     style: TextStyle(
                                       color: AppColors.white,
                                       fontSize: 12,
@@ -282,10 +282,10 @@ class _BuildCommentState extends State<BuildComment> {
                             GestureDetector(
                               child: Icon(
                                 listComment[index].isPress
-                                    ? Icons.favorite
-                                    : Icons.favorite_outline,
+                                    ? Icons.favorite_outline
+                                    : Icons.favorite,
                                 color: listComment[index].isPress
-                                    ? AppColors.red2
+                                    ? AppColors.blue1
                                     : AppColors.gray,
                                 size: 20,
                               ),
@@ -298,7 +298,7 @@ class _BuildCommentState extends State<BuildComment> {
                             ),
                             Text(
                               listComment[index].tym.toString(),
-                              style: TextStyle(color: AppColors.gray),
+                              style: const TextStyle(color: AppColors.gray),
                             )
                           ],
                         ),

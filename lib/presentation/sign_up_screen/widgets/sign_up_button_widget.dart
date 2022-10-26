@@ -3,7 +3,6 @@ import 'package:music_app/presentation/home_screen/pages/home_screen.dart';
 
 import '../../../data/resources/colors.dart';
 import '../../../data/resources/dimensions.dart';
-import '../../sign_in_screen/pages/sign_in_screen.dart';
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton({Key? key}) : super(key: key);
@@ -19,19 +18,19 @@ class SignUpButton extends StatelessWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return HomeScreen();
+                  return const HomeScreen();
                 },
               ),
             );
           },
           style: ElevatedButton.styleFrom(
-              primary: AppColors.black1,
+              backgroundColor: AppColors.black1,
               padding: EdgeInsets.zero,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(28),
               ),
               fixedSize: Size(AppDimensions.d40w - 4, 52)),
-          child: Text(
+          child: const Text(
             'Sign Up',
             style: TextStyle(
               color: AppColors.white,
